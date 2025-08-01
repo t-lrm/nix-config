@@ -8,11 +8,19 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
+      ./obs.nix
+      # ./hyprland.nix
     ];
 
   # Bootloader.
-  boot.loader.systemd-boot.enable = true;
+  # boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.grub = {
+    enable = true;
+    efiSupport = true;
+    useOSProber = true;
+    devices = [ "nodev" ];
+  };
 
   networking.hostName = "nixos"; # Define your hostname.
   # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
@@ -55,12 +63,14 @@
     variant = "";
   };
 
+  # Enable Flakes
+  nix.settings.experimental-features = [ "nix-command" "flakes" ];
+
   # Enable CUPS to print documents.
   services.printing.enable = true;
 
   # Enable sound with pipewire.
-  # services.pulseaudio.enable = false;
-  hardware.pulseaudio.enable = false;
+  services.pulseaudio.enable = false;
   security.rtkit.enable = true;
   services.pipewire = {
     enable = true;
@@ -106,13 +116,26 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-    vim 
-    wget
-    firefox
-    discord
-    obsidian
-    git
-    cowsay # Only for test
+     wget
+     vim
+     git
+     firefox
+     python3
+     obsidian
+     discord
+     zip
+     unzip
+     hugo
+     gnumake
+     vlc
+     ffmpeg
+     yarn
+     libreoffice-still
+     python3Packages.pip
+     vscode
+     os-prober
+     spotify
+     tor-browser-bundle-bin
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
