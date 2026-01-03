@@ -4,7 +4,7 @@
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs?ref=nixos-unstable";
     home-manager = {
-      url = "https://github.com/nix-community/home-manager/archive/release-25.11.tar.gz";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
@@ -17,7 +17,7 @@
         Thinkpad = nixpkgs.lib.nixosSystem {
           inherit system;
           modules = [
-            ./nixos-configuration.nix
+            ./configuration.nix
             home-manager.nixosModules.home-manager
           ];
         };
