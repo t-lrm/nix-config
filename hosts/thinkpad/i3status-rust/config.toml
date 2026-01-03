@@ -1,0 +1,145 @@
+# ~/.config/i3status-rust/config.toml
+
+[theme]
+theme = "native"
+[theme.overrides]
+good_fg = "#A3BE8C"
+warning_fg = "#EBCB8B"
+critical_fg = "#BF616A"
+
+separator = " "
+start_separator = " "
+end_separator = " "
+
+[icons]
+icons = "awesome6"
+[icons.overrides]
+bat = ["", "", "", "", ""]
+bat_charging = ""
+bat_not_available = ""
+
+[[block]]
+block = "music"
+format = "{$combo.str(max_w:50,rot_interval:0.5) $prev $play $next \t\t|}"
+
+[[block]]
+block = "net"
+device = "^wl.*"
+interval = 1
+format = " {$ssid $ip $signal_strength.bar(v:true,max_value:100) (↓$speed_down.eng(u:B,p:Ki,w:4)/↑$speed_up.eng(u:B,p:Ki,w:4))|down}"
+inactive_format = " down"
+missing_format = ""
+
+[[block.click]]
+button = "left"
+cmd = "alacritty -e nmtui"
+
+[[block]]
+block = "net"
+device = "^(en|eth).*"
+interval = 1
+format = "$icon {$ip (↓$speed_down.eng(u:B,p:Ki,w:4)/↑$speed_up.eng(u:B,p:Ki,w:4))|}"
+inactive_format = ""
+missing_format = ""
+
+# Outputs JSON: {"text":"...","state":"Good|Critical"}  :contentReference[oaicite:1]{index=1}
+[[block]]
+block = "custom"
+interval = 2
+json = true
+format = "$text"
+command = '''
+json_escape() {
+  printf '%s' "$1" | sed \
+    -e 's/\\/\\\\/g' \
+    -e 's/"/\\"/g' \
+    -e 's/\t/\\t/g' \
+    -e 's/\r/\\r/g' \
+    -e 's/\n/\\n/g' \
+    -e 's/\f/\\f/g'
+}
+
+vpn_names="$(nmcli -t -f NAME,TYPE connection show --active 2>/dev/null \
+  | awk -F: '$2=="vpn" || $2=="wireguard" {print $1}')"
+
+first="$(printf '%s\n' "$vpn_names" | head -n1)"
+count="$(printf '%s\n' "$vpn_names" | sed '/^$/d' | awk 'END{print NR+0}')"
+
+if [ "$count" -gt 0 ]; then
+  label="$first"
+  if [ "$count" -gt 1 ]; then
+    label="${first}+$(($count-1))"
+  fi
+
+  text=" $label"
+  esc_text="$(json_escape "$text")"
+  printf '{"text":"%s","state":"Good"}\n' "$esc_text"
+  exit 0
+fi
+
+for iface in wg0 tun0 tailscale0; do
+  if ip -o link show up 2>/dev/null | grep -q ": $iface:"; then
+    esc_text="$(json_escape " $iface")"
+    printf '{"text":"%s","state":"Good"}\n' "$esc_text"
+    exit 0
+  fi
+done
+
+printf '{"text":"%s","state":"Critical"}\n' "$(json_escape " off")"
+'''
+
+[[block]]
+block = "backlight"
+format = " $brightness"
+missing_format = ""
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+device_kind = "source"
+format = "$icon"
+
+[[block]]
+block = "sound"
+driver = "pulseaudio"
+step_width = 5
+format = "{ $volume.eng(w:2)| }"
+
+[[block.click]]
+button = "left"
+cmd = "pavucontrol"
+
+[[block]]
+block = "battery"
+device = "BAT0"
+interval = 1
+format = "$icon $percentage {($time_remaining.dur(hms:true, min_unit:m))|}"
+charging_format = "$icon $percentage {($time_remaining.dur(hms:true, min_unit:m))|}"
+not_charging_format = "$icon $percentage"
+full_format = "$icon $percentage"
+full_threshold = 99
+warning = 20
+critical = 10
+
+[[block]]
+block = "disk_space"
+path = "/"
+interval = 20
+info_type = "used"
+warning = 80
+alert = 90
+format = " $used.eng(p:Gi, prefix_space:true, w:5) ($percentage.eng(w:1))"
+
+[[block]]
+block = "tea_timer"
+format = " $icon {$time |}"
+done_cmd = "notify-send 'Timer Finished'"
+
+[[block]]
+block="time"
+interval=1
+format=" $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S (%:z)')"
+timezone=["Europe/Paris","Asia/Ho_Chi_Minh"]
+
+[[block]]
+block = "keyboard_layout"

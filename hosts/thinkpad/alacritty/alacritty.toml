@@ -1,0 +1,50 @@
+[font]
+size = 8
+
+[font.normal]
+# family = "JetBrains Mono"
+style = "Regular"
+
+[window]
+opacity = 0.95
+dynamic_title = true
+
+[scrolling]
+history = 10000
+multiplier = 3
+
+[cursor]
+unfocused_hollow = true
+blink_interval = 750
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[mouse]
+hide_when_typing = true
+
+[[keyboard.bindings]]
+key = "V"
+mods = "Control|Shift"
+action = "Paste"
+
+[[keyboard.bindings]]
+key = "C"
+mods = "Control|Shift"
+action = "Copy"
+
+[[keyboard.bindings]]
+key = "Plus"
+mods = "Control"
+action = "IncreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Minus"
+mods = "Control"
+action = "DecreaseFontSize"
+
+[[keyboard.bindings]]
+key = "Key0"
+mods = "Control"
+action = "ResetFontSize"
