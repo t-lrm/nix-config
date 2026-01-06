@@ -24,6 +24,7 @@
     "${vars.modules}/shell.nix"
 
     "${vars.programs}/git.nix"
+    "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
   ];
 
