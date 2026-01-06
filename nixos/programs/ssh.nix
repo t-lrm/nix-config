@@ -8,7 +8,6 @@
     # 1Password SSH agent
     matchBlocks."*" = {
       identityAgent = "~/.1password/agent.sock";
-      identitiesOnly = true;
     };
   };
 }
