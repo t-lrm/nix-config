@@ -45,6 +45,8 @@
           home-manager.useGlobalPkgs = true;
           home-manager.useUserPackages = true;
 
+          home-manager.backupFileExtension = "home-manager-backup";
+
           # Pass args into HM modules too
           home-manager.extraSpecialArgs = {
             inherit username host vars;
