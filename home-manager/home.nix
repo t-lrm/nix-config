@@ -1,15 +1,19 @@
-{ config, pkgs, ... }:
-
 {
-  xdg.enable = true;
-  xdg.configFile."alacritty/alacritty.toml".source = ./../dotfiles/alacritty/alacritty.toml;
-  xdg.configFile."i3/config".source               = ./../dotfiles/i3/config;
-  xdg.configFile."i3status-rust/config.toml".source = ./../dotfiles/i3status-rust/config.toml;
+  config,
+  pkgs,
+  ...
+}: {
+  xdg = {
+    enable = true;
+    configFile = {
+      "i3/config".source = ./../dotfiles/i3/config;
+      "i3status-rust/config.toml".source = ./../dotfiles/i3status-rust/config.toml;
+      "alacritty/alacritty.toml".source = ./../dotfiles/alacritty/alacritty.toml;
+    };
+  };
 
   home.username = "nixos";
   home.homeDirectory = "/home/nixos";
-
-  home.stateVersion = "25.11"; # DOT NOT CHANGE
 
   home.packages = with pkgs; [
     # Fonts
@@ -22,7 +26,7 @@
     google-chrome
     obsidian
     discord
-    vlc 
+    vlc
     libreoffice-still
     vscode
     spotify
@@ -30,8 +34,10 @@
 
     # Other
     pavucontrol
-    maim xclip # screenshots
-    dunst libnotify # notification manager
+    maim
+    xclip # screenshots
+    dunst
+    libnotify # notification manager
     brightnessctl
 
     # i3 related tools
@@ -40,12 +46,14 @@
     i3status-rust # better i3status
   ];
 
+  programs.home-manager.enable = true;
+
   # Bash setup (aliases/functions)
   programs.bash = {
     enable = true;
     enableCompletion = true;
 
-    initExtra= ''
+    initExtra = ''
       # --- Aliases ---
 
       # Basic shortcuts
@@ -91,10 +99,20 @@
     enable = true;
     settings = {
       format = "$username$hostname$directory$git_branch$character";
-      username = { show_always = true; format = "$user@"; };
-      hostname = { ssh_only = false; format = "$hostname"; };
-      directory = { format = " [$path]($style)"; };
-      git_branch = { format = " [$symbol$branch]($style)"; };
+      username = {
+        show_always = true;
+        format = "$user@";
+      };
+      hostname = {
+        ssh_only = false;
+        format = "$hostname";
+      };
+      directory = {
+        format = " [$path]($style)";
+      };
+      git_branch = {
+        format = " [$symbol$branch]($style)";
+      };
       character = {
         format = " $symbol ";
         success_symbol = "➜";
@@ -103,6 +121,5 @@
     };
   };
 
-  programs.home-manager.enable = true;
+  home.stateVersion = "25.11"; # DOT NOT CHANGE
 }
-

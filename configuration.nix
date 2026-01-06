@@ -1,7 +1,10 @@
-{ config, lib, pkgs, ... }:
-
 {
-  imports = [ ./hardware-configuration.nix ];
+  config,
+  lib,
+  pkgs,
+  ...
+}: {
+  imports = [./hardware-configuration.nix];
 
   home-manager = {
     useUserPackages = true;
@@ -23,24 +26,24 @@
     networkmanager-openvpn
   ];
 
-# networking.networkmanager.ensureProfiles = {
-#   profiles = {
-#     "Custom VPN" = {
-#       connection = {
-#         id = "customvpn";
-#         type = "vpn";
-#         autoconnect = true;
-#       };
-#       vpn = {
-#         service-type = "org.freedesktop.NetworkManager.openvpn";
-#         persistent = true;
-#         config = "/etc/nixos/vpn/customvpn.ovpn";
-#       };
-#       ipv4.never-default = true;
-#       ipv6.never-default = true;
-#     };
-#   };
-# };
+  # networking.networkmanager.ensureProfiles = {
+  #   profiles = {
+  #     "Custom VPN" = {
+  #       connection = {
+  #         id = "customvpn";
+  #         type = "vpn";
+  #         autoconnect = true;
+  #       };
+  #       vpn = {
+  #         service-type = "org.freedesktop.NetworkManager.openvpn";
+  #         persistent = true;
+  #         config = "/etc/nixos/vpn/customvpn.ovpn";
+  #       };
+  #       ipv4.never-default = true;
+  #       ipv6.never-default = true;
+  #     };
+  #   };
+  # };
 
   # Enable bluetooth
   hardware.bluetooth = {
@@ -62,7 +65,10 @@
   services.pulseaudio.enable = false;
 
   # Enable Flakes
-  nix.settings.experimental-features = [ "nix-command"  "flakes"];
+  nix.settings.experimental-features = [
+    "nix-command"
+    "flakes"
+  ];
 
   # Set your time zone
   time.timeZone = "Europe/Paris";
@@ -83,7 +89,7 @@
     };
 
     desktopManager.xterm.enable = false;
-   
+
     windowManager.i3 = {
       enable = true;
     };
@@ -98,17 +104,25 @@
       "-detectsleep"
 
       # When the cursor is placed in the bottom-right corner, it disable locking
-      "-corners" "000-"
-      "-cornerdelay" "1"
-      "-cornerredelay" "1"
-      "-cornersize" "30"
+      "-corners"
+      "000-"
+      "-cornerdelay"
+      "1"
+      "-cornerredelay"
+      "1"
+      "-cornersize"
+      "30"
     ];
   };
 
   # Define user accounts ("wheel" is the sudo group)
   users.users.nixos = {
     isNormalUser = true;
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+      "docker"
+    ];
   };
 
   nix.gc = {
@@ -123,12 +137,15 @@
   # 1Password GUI
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ "nixos" ]; # this makes system auth etc. work properly
+    polkitPolicyOwners = ["nixos"]; # this makes system auth etc. work properly
   };
 
   # Setup keyring needed by 1Password
   services.gnome.gnome-keyring.enable = true;
   security.pam.services.login.enableGnomeKeyring = true;
+
+  # Enable docker
+  virtualisation.docker.enable = true;
 
   environment.systemPackages = with pkgs; [
     wget
@@ -145,8 +162,10 @@
     # OpenVPN support
     networkmanager-openvpn
     openvpn
+
+    # Format nix file
+    alejandra
   ];
 
   system.stateVersion = "25.11"; # DO NOT CHANGE
 }
-
