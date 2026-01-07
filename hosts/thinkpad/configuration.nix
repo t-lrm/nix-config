@@ -13,6 +13,7 @@
     (vars.services + "/bluetooth.nix")
     (vars.services + "/networking.nix")
     (vars.services + "/xserver.nix")
+    (vars.services + "/virtualmachine.nix")
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -40,6 +41,7 @@
       "networkmanager"
       "wheel"
       "docker"
+      "libvirtd"
     ];
   };
 
