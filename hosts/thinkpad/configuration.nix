@@ -70,6 +70,7 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
+    htop
     wget
     tree
     vim
