@@ -24,8 +24,7 @@
       config.allowUnfree = true;
     };
 
-   vars = import ./hosts/${host}/variables.nix;
-
+    vars = import ./hosts/${host}/variables.nix;
   in {
     # NixOS system configuration `nixos-rebuild switch --flake ...`
     nixosConfigurations.${host} = nixpkgs.lib.nixosSystem {

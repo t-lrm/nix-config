@@ -1,5 +1,4 @@
-{...}:
-{
+{...}: {
   systemd.user.services."startup-initialisation" = {
     description = "Set the volume/brightness at startup.";
 
@@ -7,7 +6,7 @@
       Type = "oneshot";
     };
 
-    wantedBy = [ "default.target" ];
+    wantedBy = ["default.target"];
 
     # This scripts doesn't work for now
     script = ''
