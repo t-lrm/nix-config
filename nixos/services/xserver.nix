@@ -1,4 +1,10 @@
 {pkgs, ...}: {
+  # Install the local custom lock script into /etc so xautolock can call it
+  environment.etc."i3lock" = {
+    source = ./lock;
+    mode = "0755";
+  };
+
   # Enable the X11 windowing system
   services.xserver = {
     enable = true;
@@ -20,7 +26,7 @@
   services.xserver.xautolock = {
     enable = true;
     time = 5;
-    locker = "${pkgs.i3lock}/bin/i3lock"; # TODO: use custom lock screen
+    locker = "/etc/i3lock";
     extraOptions = [
       "-detectsleep"
 

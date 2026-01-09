@@ -14,6 +14,7 @@
     (vars.services + "/networking.nix")
     (vars.services + "/xserver.nix")
     (vars.services + "/virtualmachine.nix")
+    (vars.services + "/startup.nix")
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
@@ -43,6 +44,7 @@
       "docker"
       "libvirtd"
     ];
+    linger = true; # enable running script on startup
   };
 
   # Garbage collector
