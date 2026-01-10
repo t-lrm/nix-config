@@ -6,6 +6,7 @@ rec {
   modules = ../../nixos/modules;
   programs = ../../nixos/programs;
   services = ../../nixos/services;
+  custom = ../../nixos/custom;
   dotfiles = ../../dotfiles;
 
   hostname = "thinkpad";

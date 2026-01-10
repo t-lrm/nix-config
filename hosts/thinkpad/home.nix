@@ -57,11 +57,19 @@
     rofi # app launcher
     i3lock-color # better i3lock
     i3status-rust # better i3status
+
+    (pkgs.writeShellApplication {
+        name = "generate_architecture";
+        runtimeInputs = [ pkgs.python3 ];
+        text = ''
+        exec ${pkgs.python3}/bin/python3 ${(vars.custom + "/generate_architecture.py")} "$@"
+        '';
+    })
   ];
 
-  # home.sessionVariables = {
-  #   EDITOR = "nvim";
-  # };
+  home.sessionVariables = {
+    EDITOR = "vim";
+  };
 
   home.stateVersion = vars.stateVersion;
 }

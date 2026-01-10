@@ -1,41 +1,4 @@
-# --- Aliases ---
-
-# Basic shortcuts
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
-alias ..='cd ..'
-alias ...='cd ../..'
-alias t3='tree . -I "obj|bin|.idea|.git" -a'
-
-# Git shortcuts
-alias gs='git status'
-alias ga='git add'
-alias gc='git commit -m'
-alias gp='git push'
-alias gpt='git push --follow-tags'
-alias gt='git tag -ma'
-alias gd='git diff'
-
-# Python virtualenv helper
-alias venv='source .venv/bin/activate'
-
-# --- Functions ---
-
-# Quick mkcd - make directory and cd into it
-mkcd () {
-    mkdir -p "$1" && cd "$1"
-}
-
-# Copy text to clipboard
-cb () {
-    xclip -selection clipboard < "$1"
-}
-
-# Run clang-format on a whole repo
-formatc() {
-  find . -iname '*.h' -o -iname '*.c' | xargs clang-format -i
-}
+# ===== HELPERS =====
 
 # Fail if not inside a git work tree
 _require_git_repo() {
@@ -91,5 +54,31 @@ _tag_and_push() {
   echo "$prefix: done (pushed $tag)"
 }
 
+# ===== FUNCTIONS =====
+
+# Run clang-format on a whole repo
+format_c() {
+  find . -iname '*.h' -o -iname '*.c' | xargs clang-format -i
+}
+
 archi()  { _tag_and_push archi  0; }
 submit() { _tag_and_push submit 1; }
+
+makearchi () {
+  local tmp
+  tmp="$(mktemp -t architecture.XXXXXX)" || return 1
+
+  cleanup() { rm -f "$tmp"; }
+  trap cleanup EXIT INT TERM
+
+  echo "Paste your tree/architecture into the editor, then save & quit." > "$tmp"
+  $EDITOR "$tmp"
+
+  # If user quit without saving anything
+  if [[ ! -s "$tmp" ]]; then
+    echo "No architecture provided (file empty). Aborting."
+    return 1
+  fi
+
+  generate_architecture "$tmp"
+}
