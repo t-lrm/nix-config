@@ -24,41 +24,42 @@ i3lock-color \
   --keylayout 2 \
   --insidever-color=$selection$alpha \
   --insidewrong-color=$selection$alpha \
-  --inside-color=$transparent \
-  --ringver-color=$green$alpha \
+  --inside-color=$selection$alpha \
+  --ringver-color=$blue$alpha \
   --ringwrong-color=$red$alpha \
-  --ring-color=$white$alpha \
+  --ring-color=$orange$alpha \
   --line-uses-ring \
-  --keyhl-color=$green$alpha \
+  --keyhl-color=$white$alpha \
   --bshl-color=$red$alpha \
-  --separator-color=$selection$alpha \
-  --verif-color=$green \
+  --separator-color=$transparent \
+  --verif-color=$blue\
   --wrong-color=$red \
   --modif-color=$red \
   --layout-color=$blue \
-  --date-color=$white\
-  --time-color=$white\
-  --layout-color=$white \
+  --date-color=$orange\
+  --time-color=$orange\
+  --layout-color=$orange\
   --blur 1 \
   --clock \
   --time-str="%H:%M:%S" \
-  --date-str="%A %e %B %Y" \
-  --verif-text="Checking..." \
-  --wrong-text="Wrong pswd" \
+  --date-str="%d/%m/%Y" \
+  --verif-text="..." \
+  --wrong-text="Failed" \
   --noinput="No Input" \
-  --lock-text="Locking..." \
+  --lock-text="..." \
   --lockfailed="Lock Failed" \
-  --radius=120\
-  --ring-width=2 \
+  --radius=120 \
+  --ring-width=8 \
   --pass-media-keys \
   --pass-screen-keys \
   --pass-volume-keys \
   --time-size=32 \
   --date-size=18 \
   --layout-size=10 \
-  --time-font="JetBrains Mono" \
+  --time-font="JetBrains Mono:style=Bold" \
   --date-font="JetBrains Mono" \
   --layout-font="JetBrains Mono" \
   --verif-font="JetBrains Mono" \
   --wrong-font="JetBrains Mono" \
-  --nofork \
+  --indicator
+  --nofork
