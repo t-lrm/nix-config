@@ -28,6 +28,14 @@
     "${vars.programs}/starship.nix"
   ];
 
+  services.screen-locker = {
+    enable = true;
+    inactiveInterval = 1;
+    lockCmd = "/etc/i3lock-custom";
+    xautolock.extraOptions = [ "-corners" "000-" "-cornerdelay" "1" "-cornerredelay" "1" "-cornersize" "30" ];
+  };
+
+
   home.packages = with pkgs; [
     # Fonts
     jetbrains-mono

@@ -8,16 +8,15 @@ font pango:Jetbrains Mono 8
 # https://wiki.archlinux.org/index.php/XDG_Autostart
 exec --no-startup-id dex --autostart --environment i3
 
-# xss-lock grabs a logind suspend inhibit lock and will use i3lock to lock the
-# screen before suspend. Use loginctl lock-session to lock your screen.
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
-
 # NetworkManager is the most popular way to manage wireless networks on Linux,
 # and nm-applet is a desktop environment-independent system tray GUI for it.
 exec --no-startup-id nm-applet
 
 # Notification manager
 exec --no-startup-id dunst
+
+# Nescessary to run i3lock when idle
+exec --no-startup-id xss-lock -- /etc/i3lock-custom
 
 set $refresh_i3status killall -SIGUSR1 i3status-rs
 
@@ -151,7 +150,7 @@ bindsym $mod+Shift+c reload
 bindsym $mod+Shift+r restart
 
 # lock your session with i3lock
-bindsym $mod+Shift+x exec --no-startup-id /etc/i3lock
+bindsym $mod+Shift+x exec --no-startup-id /etc/i3lock-custom
 
 # exit i3 (logs you out of your X session)
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Do you really want to shutdown the computer?' -B 'Yes, shutdown' 'shutdown now'"

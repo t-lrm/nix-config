@@ -61,3 +61,4 @@ i3lock-color \
   --layout-font="JetBrains Mono" \
   --verif-font="JetBrains Mono" \
   --wrong-font="JetBrains Mono" \
+  --nofork \

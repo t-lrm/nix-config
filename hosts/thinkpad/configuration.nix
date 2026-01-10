@@ -54,6 +54,12 @@
     options = "--delete-older-than 30d";
   };
 
+  # Enable a custom i3lock script in /etc folder
+  environment.etc."i3lock-custom" = {
+    source = (vars.custom + "/i3lock-custom.sh");
+    mode = "0755";
+  };
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
