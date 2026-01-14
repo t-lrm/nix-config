@@ -97,6 +97,12 @@
 
     # Format nix file
     alejandra
+
+    # i3 related tools
+    rofi # app launcher
+    i3lock-color # better i3lock
+    i3status-rust # better i3status
+
   ];
 
   system.stateVersion = "25.11"; # DO NOT CHANGE
