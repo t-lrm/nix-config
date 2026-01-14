@@ -87,6 +87,7 @@
     python3Packages.pip
     zip
     unzip
+    p7zip
     gnumake
     pulseaudio
 
