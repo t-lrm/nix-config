@@ -66,7 +66,7 @@
   # 1Password GUI
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = ["nixos"]; # this makes system auth etc. work properly
+    polkitPolicyOwners = [ username ];
   };
 
   # Setup keyring needed by 1Password
