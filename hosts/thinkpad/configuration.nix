@@ -92,6 +92,10 @@
     gnumake
     pulseaudio
 
+    # Used to unlock bitlocker-protected drives
+    dislocker
+    ntfs3g
+
     # OpenVPN support
     networkmanager-openvpn
     openvpn
