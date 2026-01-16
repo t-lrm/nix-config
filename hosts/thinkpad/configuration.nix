@@ -79,6 +79,7 @@
   environment.systemPackages = with pkgs; [
     home-manager
     htop
+    ipcalc
     wget
     tree
     vim
