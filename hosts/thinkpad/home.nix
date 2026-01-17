@@ -31,6 +31,7 @@
     "${vars.programs}/git.nix"
     "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
+    "${vars.programs}/dunst.nix"
   ];
 
   services.screen-locker = {
@@ -38,7 +39,7 @@
     inactiveInterval = 1;
     lockCmd = "/etc/i3lock-custom";
     xautolock.enable = true;
-    xautolock.extraOptions = [ "-corners" "000-" "-cornerdelay" "1" "-cornerredelay" "1" "-cornersize" "30" ];
+    xautolock.extraOptions = ["-corners" "000-" "-cornerdelay" "1" "-cornerredelay" "1" "-cornersize" "30"];
   };
 
   home.packages = with pkgs; [
@@ -62,16 +63,14 @@
     pavucontrol
     maim
     xclip # screenshots
-    dunst
-    libnotify # notification manager
     brightnessctl
 
     (pkgs.writeShellApplication {
-        name = "generate_architecture";
-        runtimeInputs = [ pkgs.python3 ];
-        text = ''
+      name = "generate_architecture";
+      runtimeInputs = [pkgs.python3];
+      text = ''
         exec ${pkgs.python3}/bin/python3 ${(vars.custom + "/generate_architecture.py")} "$@"
-        '';
+      '';
     })
   ];
 
