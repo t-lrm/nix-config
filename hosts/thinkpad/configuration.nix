@@ -57,7 +57,7 @@
 
   # Enable a custom i3lock script in /etc folder
   environment.etc."i3lock-custom" = {
-    source = (vars.custom + "/i3lock-custom.sh");
+    source = vars.custom + "/i3lock-custom.sh";
     mode = "0755";
   };
 
@@ -67,7 +67,7 @@
   # 1Password GUI
   programs._1password-gui = {
     enable = true;
-    polkitPolicyOwners = [ username ];
+    polkitPolicyOwners = [username];
   };
 
   # Setup keyring needed by 1Password
@@ -108,7 +108,6 @@
     rofi # app launcher
     i3lock-color # better i3lock
     i3status-rust # better i3status
-
   ];
 
   system.stateVersion = "25.11"; # DO NOT CHANGE

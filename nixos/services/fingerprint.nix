@@ -1,6 +1,8 @@
-{ config, pkgs, ... }:
-
 {
+  config,
+  pkgs,
+  ...
+}: {
   # To add a fingerprint, simply run `sudo fprintd-enroll`
   services.fprintd = {
     enable = true;
@@ -25,11 +27,11 @@
   security.pam.services.sudo.fprintAuth = true;
 
   # Popup windows to tell the user to put it's finger on the reader
-  environment.systemPackages = [ pkgs.polkit_gnome ];
+  environment.systemPackages = [pkgs.polkit_gnome];
   systemd.user.services.polkit-gnome-authentication-agent-1 = {
     description = "polkit-gnome-authentication-agent-1";
-    wantedBy = [ "graphical-session.target" ];
-    after = [ "graphical-session.target" ];
+    wantedBy = ["graphical-session.target"];
+    after = ["graphical-session.target"];
     serviceConfig = {
       Type = "simple";
       ExecStart = "${pkgs.polkit_gnome}/libexec/polkit-gnome-authentication-agent-1";
@@ -38,4 +40,3 @@
     };
   };
 }
-

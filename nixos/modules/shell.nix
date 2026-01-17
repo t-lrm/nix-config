@@ -3,14 +3,12 @@
   vars,
   lib,
   ...
-}:
-let
+}: let
   files = [
     "${vars.dotfiles}/bash/.bashrc"
     "${vars.dotfiles}/bash/epita.bashrc"
   ];
-in
-{
+in {
   # Bash setup (aliases/functions)
   programs.bash = {
     enable = true;
