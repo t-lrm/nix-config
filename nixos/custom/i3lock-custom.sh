@@ -19,7 +19,6 @@ shadow_col="000000b3"
 shadow_w="2"
 
 i3lock-color \
-  --ignore-empty-password \
   --show-failed-attempts \
   --keylayout 2 \
   --insidever-color=$selection$alpha \
