@@ -1,7 +1,7 @@
 # Basic shortcuts
-alias ll='ls -alF --color=auto'
-alias la='ls -A --color=auto'
-alias l='ls -CF --color=auto'
+alias ll='eza --oneline --icons=always --hyperlink --sort=name'
+alias la='eza --all --long --icons=always --hyperlink --sort=name --total-size --git'
+alias lt='eza --tree --icons=always --hyperlink --sort=name --total-size --git'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias t3='tree . -I "obj|bin|.idea|.git" -a'

@@ -44,7 +44,7 @@
 
   home.packages = with pkgs; [
     # Fonts
-    jetbrains-mono
+    nerd-fonts.jetbrains-mono
     font-awesome
 
     # Apps
@@ -64,6 +64,7 @@
     maim
     xclip # screenshots
     brightnessctl
+    eza # improved ls
 
     (pkgs.writeShellApplication {
       name = "generate_architecture";
