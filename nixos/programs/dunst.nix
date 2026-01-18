@@ -197,4 +197,20 @@ in {
       };
     };
   };
+
+  services.batsignal = {
+    enable = true;
+    extraArgs = [
+      "-w" "20"  # warning at 20%  (default is 15)
+      "-c" "10"  # critical at 10% (default is 5)
+
+      # Optional, but makes matching in dunst easier:
+      "-W" "Battery low"
+      "-C" "Battery critical"
+
+      # Optional: disable "danger" level if you don't want actions at ~2%
+      "-d" "0"
+    ];
+  };
+
 }
