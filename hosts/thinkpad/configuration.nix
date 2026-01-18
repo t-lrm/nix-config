@@ -80,6 +80,7 @@
     home-manager
     htop
     ipcalc
+    ncdu
     wget
     tree
     vim
