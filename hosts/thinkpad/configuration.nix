@@ -14,7 +14,6 @@
     (vars.services + "/networking.nix")
     (vars.services + "/xserver.nix")
     (vars.services + "/virtualmachine.nix")
-    (vars.services + "/startup.nix")
     (vars.services + "/fingerprint.nix")
   ];
 
