@@ -59,6 +59,7 @@
     vscode
     spotify
     todoist-electron
+    yazi
 
     # Other
     pavucontrol
