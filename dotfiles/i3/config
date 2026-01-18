@@ -2,7 +2,7 @@
 
 set $mod Mod4
 
-font pango:Jetbrains Mono 8
+font pango:JetbrainsMono Nerd Font Mono 8
 
 # Start XDG autostart .desktop files using dex. See also
 # https://wiki.archlinux.org/index.php/XDG_Autostart
@@ -211,5 +211,5 @@ bindsym Print exec --no-startup-id sh -c '\
 
 bar {
     status_command i3status-rs ~/.config/i3status-rust/config.toml
-    font pango:JetBrains Mono 10
+    font pango:Jetbrains Mono 10
 }
