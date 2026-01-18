@@ -1,5 +1,8 @@
 #!/bin/sh
 
+# Pause notifications when locking screen
+dunstctl set-paused true
+
 alpha='dd'
 background='#282a36'
 selection='#44475a'
@@ -62,3 +65,6 @@ i3lock-color \
   --wrong-font="JetBrains Mono" \
   --indicator \
   --nofork
+  
+# Resume notifications after unlocking
+dunstctl set-paused false
