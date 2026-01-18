@@ -11,6 +11,7 @@
       "i3/config".source = "${vars.dotfiles}/i3/config";
       "i3status-rust/config.toml".source = "${vars.dotfiles}/i3status-rust/config.toml";
       "alacritty/alacritty.toml".source = "${vars.dotfiles}/alacritty/alacritty.toml";
+      "git/config".source = "${vars.dotfiles}/git/config";
     };
   };
 

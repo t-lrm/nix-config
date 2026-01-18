@@ -1,0 +1,32 @@
+[user]
+  name = "Timothée Le Roux Maertens"
+  email = "timothee.le-roux-maertens@epita.fr"
+
+[apply]
+  whitespace = error
+
+[status]
+  branch = true
+  showStash = true
+  showUntrackedFiles = all
+
+[url "git@github.com:"]
+  insteadOf = "gh:"
+
+[url "git@gitlab.com:"]
+  insteadOf = "gl:"
+
+[url "git@gitlab.cri.epita.fr:"]
+  insteadOf = "cri:"
+
+[url "git@github.com:t-lrm/"]
+  insteadOf = "t-lrm:"
+
+[url "git@github.com:umyedi/"]
+  insteadOf = "umyedi:"
+
+[url "git@gitlab.cri.epita.fr:timothee.le-roux-maertens/"]
+  insteadOf = "tlrm:"
+
+[url "git@gitlab.com:prologin/"]
+  insteadOf = "prolo:"

@@ -9,11 +9,17 @@ alias t3='tree . -I "obj|bin|.idea|.git" -a'
 # Git shortcuts
 alias gs='git status'
 alias ga='git add'
+alias gap='git add -Ap'
 alias gc='git commit -m'
+alias gcl='git clone'
 alias gp='git push'
 alias gpt='git push --follow-tags'
 alias gt='git tag -ma'
 alias gd='git diff'
+alias gds='git diff --staged'
+alias gr='git restore -p'
+alias grs='git restore --staged'
+alias gl='git log --all --graph --decorate=full'
 
 # Python virtualenv helper
 alias venv='source .venv/bin/activate'
