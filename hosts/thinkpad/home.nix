@@ -61,6 +61,7 @@
     spotify
     todoist-electron
     yazi
+    tmux
 
     # Other
     pavucontrol
