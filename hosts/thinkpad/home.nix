@@ -9,7 +9,6 @@
     enable = true;
     configFile = {
       "i3status-rust/config.toml".source = "${vars.dotfiles}/i3status-rust/config.toml";
-      "alacritty/alacritty.toml".source = "${vars.dotfiles}/alacritty/alacritty.toml";
       "git/config".source = "${vars.dotfiles}/git/config";
     };
   };
@@ -51,7 +50,7 @@
     font-awesome
 
     # Apps
-    alacritty
+    kitty
     firefox
     google-chrome
     obsidian
