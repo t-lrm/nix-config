@@ -33,6 +33,7 @@
     "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
     "${vars.programs}/dunst.nix"
+    "${vars.programs}/yazi.nix"
   ];
 
   services.screen-locker = {
@@ -60,7 +61,6 @@
     vscode
     spotify
     todoist-electron
-    yazi
     tmux
 
     # Other
