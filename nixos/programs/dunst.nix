@@ -176,7 +176,7 @@ in {
 
       "20-discord" = {
         desktop_entry = "discord";
-        timeout = 8;
+        timeout = 12;
         urgency = "normal";
       };
 
