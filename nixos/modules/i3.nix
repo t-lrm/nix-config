@@ -70,9 +70,9 @@ in {
       floating.modifier = mod;
 
       assigns = {
-        "firefox" = [{workspace = "1";}];
-        "1Password" = [{workspace = "9";}];
-        "discord" = [{workspace = "10";}];
+        "1"  = [{ class = "firefox"; }];
+        "9"  = [{ class = "1Password"; }];
+        "10" = [{ class = "discord"; }];
       };
 
       bars = [
