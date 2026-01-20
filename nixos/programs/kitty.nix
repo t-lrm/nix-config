@@ -4,8 +4,8 @@
 
     themeFile = "OneHalfDark";
 
-    font.name = "DejaVu Sans Mono";
-    font.size = 10;
+    font.name = "Jetbrains Mono";
+    font.size = 11;
 
     shellIntegration.mode = "no-cursor";
 
@@ -25,7 +25,6 @@
       "scrollback_pager" = "most";
       "strip_trailing_spaces" = "always";
       "text_composition_strategy" = "legacy";
-      "visual_window_select_characters" = hints_alphabet;
     };
   };
 }

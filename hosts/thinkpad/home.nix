@@ -34,6 +34,7 @@
     "${vars.programs}/starship.nix"
     "${vars.programs}/dunst.nix"
     "${vars.programs}/yazi.nix"
+    "${vars.programs}/kitty.nix"
   ];
 
   services.screen-locker = {
@@ -51,7 +52,6 @@
     font-awesome
 
     # Apps
-    kitty
     firefox
     google-chrome
     obsidian
