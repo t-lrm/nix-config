@@ -28,6 +28,7 @@
     "${vars.modules}/i3.nix"
     "${vars.modules}/shell.nix"
 
+    "${vars.programs}/vim.nix"
     "${vars.programs}/git.nix"
     "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
@@ -77,10 +78,6 @@
       '';
     })
   ];
-
-  home.sessionVariables = {
-    EDITOR = "vim";
-  };
 
   home.stateVersion = vars.stateVersion;
 }

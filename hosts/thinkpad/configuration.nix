@@ -83,7 +83,6 @@
     ncdu
     wget
     tree
-    vim
     git
     python3
     python3Packages.pip
