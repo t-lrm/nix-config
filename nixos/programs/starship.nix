@@ -2,7 +2,14 @@
   programs.starship = {
     enable = true;
     settings = {
-      format = "$username$hostname$directory$git_branch$character";
+      format = "$username$hostname$directory$git_branch$python$character";
+      python = {
+        format = " [venv:$virtualenv]($style)";
+
+        detect_extensions = [];
+        detect_files = [];
+        detect_folders = [];
+      };
       username = {
         show_always = true;
         format = "$user@";
