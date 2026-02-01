@@ -83,9 +83,13 @@
     ncdu
     wget
     tree
+    exiftool
     git
     python3
     python3Packages.pip
+    rustc
+    cargo
+    clippy
     zip
     unzip
     p7zip
