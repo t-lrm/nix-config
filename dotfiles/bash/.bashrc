@@ -1,7 +1,7 @@
 # Basic shortcuts
-alias ll='eza --oneline --icons=always --hyperlink --sort=name'
+alias ll='eza --icons=always --hyperlink --sort=name'
 alias la='eza --all --long --icons=always --hyperlink --sort=name --total-size --git'
-alias lt='eza --tree --icons=always --hyperlink --sort=name --total-size --git'
+alias lt='eza --tree --icons=always --hyperlink --sort=name --total-size --git --all --ignore-glob="__pycache__|.git|.idea|.vscode"'
 alias ..='cd ..'
 alias ...='cd ../..'
 alias t3='tree . -I "obj|bin|.idea|.git" -a'
