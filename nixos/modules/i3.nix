@@ -5,8 +5,8 @@
   refreshI3status = "killall -SIGUSR1 i3status-rs";
   screenshotCmd = ''
     sh -c '\
-      mkdir -p "$HOME/pictures/screenshots" && \
-      maim -s | tee "$HOME/pictures/screenshots/screenshot-$(date +%F_%H-%M-%S).png" | \
+      mkdir -p "$HOME/Pictures/screenshots" && \
+      maim -s | tee "$HOME/Pictures/screenshots/screenshot-$(date +%F_%H-%M-%S).png" | \
       xclip -selection clipboard -t image/png -i \
     '
   '';

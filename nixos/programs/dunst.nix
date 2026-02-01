@@ -156,14 +156,14 @@ in {
         background = "#282a36";
         foreground = "#f8f8f2";
         default_icon = "dialog-information";
-        timeout = 4;
+        timeout = 8;
       };
 
       urgency_normal = {
         background = "#282a36";
         foreground = "#f8f8f2";
         default_icon = "dialog-information";
-        timeout = 8;
+        timeout = 12;
       };
 
       urgency_critical = {
