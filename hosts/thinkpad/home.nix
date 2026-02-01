@@ -35,6 +35,7 @@
     "${vars.programs}/dunst.nix"
     "${vars.programs}/yazi.nix"
     "${vars.programs}/kitty.nix"
+    "${vars.programs}/zoxide.nix"
   ];
 
   services.screen-locker = {
