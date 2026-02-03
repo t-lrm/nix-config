@@ -13,7 +13,7 @@
     };
   };
 
-  home.username = "nixos";
+  home.username = username;
   home.homeDirectory = "/home/${username}";
 
   xdg.userDirs = {

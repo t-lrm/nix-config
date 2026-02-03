@@ -26,10 +26,8 @@ in {
         { command = "${pkgs.dex}/bin/dex --autostart --environment i3"; }
         { command = "${pkgs.networkmanagerapplet}/bin/nm-applet"; }
         { command = "${pkgs.dunst}/bin/dunst"; }
-        { command = "${pkgs.xss-lock}/bin/xss-lock -- /etc/i3lock-custom"; }
-
-        { command = "sleep 1 && pactl set-sink-volume alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink 40%"; }
-        { command = "sleep 1 && pactl set-sink-mute alsa_output.pci-0000_00_1f.3-platform-skl_hda_dsp_generic.HiFi__Speaker__sink 1"; }
+        { command = "sleep 1 && pactl set-sink-volume @DEFAULT_SINK@ 40%"; }
+        { command = "sleep 1 && pactl set-sink-mute @DEFAULT_SINK@ 1"; }
         { command = "sleep 1 && brightnessctl set 80%"; }
 
         { command = ''firefox -new-instance -new-window "https://app.todoist.com/app/today#" -new-tab "https://chatgpt.com/?temporary-chat=true"''; }

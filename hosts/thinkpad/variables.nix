@@ -10,5 +10,5 @@ rec {
   dotfiles = ../../dotfiles;
 
   hostname = "thinkpad";
-  stateVersion = "25.11"; # DOT NOT CHANGE
+  stateVersion = "25.11"; # DO NOT CHANGE
 }
