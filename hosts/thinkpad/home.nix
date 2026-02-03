@@ -63,6 +63,7 @@
     spotify
     todoist-electron
     tmux
+    codex
 
     # Other
     pavucontrol
