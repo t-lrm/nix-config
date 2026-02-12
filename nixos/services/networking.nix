@@ -4,11 +4,20 @@
   ...
 }: {
   # Configure network connections interactively with nmcli or nmtui
-  networking.hostName = host;
-  networking.networkmanager.enable = true;
-  networking.networkmanager.plugins = with pkgs; [
-    networkmanager-openvpn
-  ];
+  networking = {
+    hostName = host;
+    networkmanager.enable = true;
+    networkmanager.plugins = with pkgs; [
+      networkmanager-openvpn
+    ];
+
+    firewall = {
+      enable = true;
+      allowedTCPPorts = [ ];
+      allowedUDPPorts = [ ];
+    };
+  };
+
 
   # networking.networkmanager.ensureProfiles = {
   #   profiles = {

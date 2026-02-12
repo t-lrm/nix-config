@@ -14,7 +14,7 @@
     (vars.services + "/networking.nix")
     (vars.services + "/xserver.nix")
     (vars.services + "/virtualmachine.nix")
-    (vars.services + "/fingerprint.nix")
+    #(vars.services + "/fingerprint.nix")
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
