@@ -114,6 +114,7 @@ in {
 
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
+        "${mod}+y" = "exec ${terminal} yazi";
 
         "${mod}+Shift+x" = "exec --no-startup-id /etc/i3lock-custom";
         "${mod}+Shift+e" = ''exec "i3-nagbar -t warning -m 'Do you really want to shutdown the computer?' -B 'Yes, shutdown' 'shutdown now'"'';
