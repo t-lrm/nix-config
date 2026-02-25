@@ -16,11 +16,6 @@
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
-  xdg.userDirs = {
-    enable = true;
-    download = "${config.home.homeDirectory}/downloads";
-  };
-
   # Make Home Manager manage itself
   programs.home-manager.enable = true;
 
