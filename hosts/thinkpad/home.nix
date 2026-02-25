@@ -49,7 +49,7 @@
 
     # Apps
     firefox
-    google-chrome
+    tor-browser
     obsidian
     discord
     vlc
