@@ -13,8 +13,8 @@
       showHelp = false;
       showSidePanelButton = false;
 
-      uiColor = "#740096";
-      contrastUiColor = "#270032";
+      uiColor = "#285577";
+      contrastOpacity=100;
       drawColor = "#ff0000";
     };
   };
