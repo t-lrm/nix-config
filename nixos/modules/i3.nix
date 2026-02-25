@@ -3,13 +3,7 @@
   terminal = "${pkgs.kitty}/bin/kitty";
   appmanager = "${pkgs.rofi}/bin/rofi -show run";
   refreshI3status = "killall -SIGUSR1 i3status-rs";
-  screenshotCmd = ''
-    sh -c '\
-      mkdir -p "$HOME/Pictures/screenshots" && \
-      maim -s | tee "$HOME/Pictures/screenshots/screenshot-$(date +%F_%H-%M-%S).png" | \
-      xclip -selection clipboard -t image/png -i \
-    '
-  '';
+  screenshot = "flameshot gui";
 in {
   xsession.windowManager.i3 = {
     enable = true;
@@ -132,7 +126,7 @@ in {
         "XF86MonBrightnessDown" = "exec --no-startup-id brightnessctl set 10%- && ${refreshI3status}";
 
         # Screenshot
-        "Print" = "exec --no-startup-id ${screenshotCmd}";
+        "Print" = "exec --no-startup-id ${screenshot}";
       };
 
       # Mode blocks

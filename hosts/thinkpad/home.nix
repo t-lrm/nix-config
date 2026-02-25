@@ -31,6 +31,7 @@
     "${vars.programs}/yazi.nix"
     "${vars.programs}/kitty.nix"
     "${vars.programs}/zoxide.nix"
+    "${vars.programs}/flameshot.nix"
   ];
 
   services.screen-locker = {
@@ -62,8 +63,7 @@
 
     # Other
     pavucontrol
-    maim
-    xclip # screenshots
+    xclip
     brightnessctl
     eza # improved ls
 
