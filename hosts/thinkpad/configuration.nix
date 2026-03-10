@@ -94,6 +94,8 @@
     p7zip
     gnumake
     pulseaudio
+    ripgrep
+    fd
 
     # Used to unlock bitlocker-protected drives
     dislocker

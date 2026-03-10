@@ -24,6 +24,7 @@
     "${vars.modules}/shell.nix"
 
     "${vars.programs}/vim.nix"
+    "${vars.programs}/neovim.nix"
     "${vars.programs}/git.nix"
     "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
@@ -57,7 +58,6 @@
     libreoffice-still
     vscode
     spotify
-    todoist-electron
     tmux
     codex
 
