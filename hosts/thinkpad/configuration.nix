@@ -96,6 +96,7 @@
     pulseaudio
     ripgrep
     fd
+    gcc
 
     # Used to unlock bitlocker-protected drives
     dislocker
