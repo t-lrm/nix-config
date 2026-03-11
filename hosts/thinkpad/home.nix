@@ -59,7 +59,6 @@
     vscode
     spotify
     tmux
-    codex
 
     # Other
     pavucontrol

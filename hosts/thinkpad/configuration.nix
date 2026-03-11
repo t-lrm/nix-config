@@ -75,6 +75,8 @@
   # Enable docker
   virtualisation.docker.enable = true;
 
+  programs.nix-index-database.comma.enable = true;
+
   environment.systemPackages = with pkgs; [
     home-manager
     htop

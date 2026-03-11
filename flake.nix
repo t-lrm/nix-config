@@ -7,12 +7,17 @@
       url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    nix-index-database = {
+      url = "github:nix-community/nix-index-database";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = {
     self,
     nixpkgs,
     home-manager,
+    nix-index-database,
     ...
   }: let
     system = "x86_64-linux";
@@ -37,6 +42,7 @@
 
       modules = [
         ./hosts/${host}/configuration.nix
+        nix-index-database.nixosModules.default
 
         # Home Manager as a NixOS module
         home-manager.nixosModules.home-manager
