@@ -99,6 +99,7 @@
     ripgrep
     fd
     gcc
+    man-pages
 
     # Used to unlock bitlocker-protected drives
     dislocker
