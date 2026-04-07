@@ -58,13 +58,62 @@
     libreoffice-still
     vscode
     spotify
-    tmux
 
-    # Other
+    # System tools
+    htop
+    ncdu
+    pulseaudio
     pavucontrol
-    xclip
     brightnessctl
+
+    # Tools
+    tmux
+    ipcalc
+    wget
+    tree
+    exiftool
+    git
+    pre-commit
+    clippy
+    zip
+    unzip
+    p7zip
+    ripgrep
+    fd
+    xclip
     eza # improved ls
+
+    # Rust
+    rustc
+    cargo
+
+    # Python
+    python3
+    python3Packages.pip
+
+    # C
+    gnumake
+    gcc
+    gdb
+
+    # Go
+    go
+
+    # Nix
+    alejandra
+
+    # Documentation
+    man-pages
+    man-pages-posix
+    tldr
+
+    # Used to unlock bitlocker-protected drives
+    dislocker
+    ntfs3g
+
+    # OpenVPN support
+    networkmanager-openvpn
+    openvpn
 
     (pkgs.writeShellApplication {
       name = "generate_architecture";

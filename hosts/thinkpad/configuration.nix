@@ -79,38 +79,6 @@
 
   environment.systemPackages = with pkgs; [
     home-manager
-    htop
-    ipcalc
-    ncdu
-    wget
-    tree
-    exiftool
-    git
-    python3
-    python3Packages.pip
-    rustc
-    cargo
-    clippy
-    zip
-    unzip
-    p7zip
-    gnumake
-    pulseaudio
-    ripgrep
-    fd
-    gcc
-    man-pages
-
-    # Used to unlock bitlocker-protected drives
-    dislocker
-    ntfs3g
-
-    # OpenVPN support
-    networkmanager-openvpn
-    openvpn
-
-    # Format nix file
-    alejandra
 
     # i3 related tools
     rofi # app launcher
