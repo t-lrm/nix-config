@@ -13,11 +13,10 @@
 
     firewall = {
       enable = true;
-      allowedTCPPorts = [ ];
-      allowedUDPPorts = [ ];
+      allowedTCPPorts = [];
+      allowedUDPPorts = [];
     };
   };
-
 
   # networking.networkmanager.ensureProfiles = {
   #   profiles = {
