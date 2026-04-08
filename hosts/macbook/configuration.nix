@@ -16,7 +16,7 @@
   nixpkgs.config.allowUnfree = true;
 
   system.defaults = {
-    dock.autohide = true;
+    dock.autohide = false;
     finder.ShowPathbar = true;
     finder.ShowStatusBar = true;
   };

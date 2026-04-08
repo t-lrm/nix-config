@@ -39,11 +39,11 @@
     firefox
     #tor-browser
     obsidian
-    discord
     #vlc
     #libreoffice-still
     vscode
     spotify
+    claude-code
 
     # Tools
     tmux

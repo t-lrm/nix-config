@@ -24,6 +24,9 @@ alias gl='git log --all --graph --decorate=full'
 # Python virtualenv helper
 alias venv='source .venv/bin/activate'
 
+# Claude code
+alias claude-local='ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model qwen3.5:27b'
+
 # --- Functions ---
 
 # Quick mkcd - make directory and cd into it
