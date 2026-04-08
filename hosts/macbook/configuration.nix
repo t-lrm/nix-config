@@ -19,7 +19,10 @@
     enable = true;
     enableCompletion = true;
 
-    interactiveShellInit = lib.concatStringsSep "\n\n" (map builtins.readFile ["${vars.dotfiles}/bash/.bashrc" "${vars.dotfiles}/bash/epita.bashrc"]);
+    interactiveShellInit = lib.concatStringsSep "\n\n" (map builtins.readFile [
+      "${vars.dotfiles}/bash/.bashrc"
+      "${vars.dotfiles}/bash/epita.bashrc"
+    ]);
   };
 
   system.defaults = {
