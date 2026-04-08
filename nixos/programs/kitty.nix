@@ -12,8 +12,8 @@
     settings = {
       "adjust_baseline" = 1;
       "adjust_column_width" = 0;
-      "background" = "#121317";
-      "background_opacity" = "0.97";
+      "background" = "#282c34";
+      "background_opacity" = "0.98";
       "box_drawing_scale" = "0.001, 1, 1.5, 2";
       "cursor_blink_interval" = 0;
       "dim_opacity" = "0.75";

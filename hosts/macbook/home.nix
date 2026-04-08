@@ -1,0 +1,80 @@
+{
+  pkgs,
+  username,
+  vars,
+  ...
+}: {
+  home.username = username;
+  home.homeDirectory = "/Users/${username}"; # obsolete ?
+
+  home.stateVersion = "25.11";
+
+  imports = [
+    "${vars.programs}/vim.nix"
+    "${vars.programs}/neovim.nix"
+    "${vars.programs}/git.nix"
+    "${vars.programs}/ssh.nix"
+    "${vars.programs}/starship.nix"
+    "${vars.programs}/yazi.nix"
+    "${vars.programs}/kitty.nix"
+    "${vars.programs}/zoxide.nix"
+  ];
+
+  home.packages = with pkgs; [
+    # Fonts
+    nerd-fonts.jetbrains-mono
+    jetbrains-mono
+    font-awesome
+
+    # Apps
+    firefox
+    #tor-browser
+    obsidian
+    discord
+    #vlc
+    #libreoffice-still
+    vscode
+    spotify
+
+    # Tools
+    tmux
+    ipcalc
+    wget
+    tree
+    exiftool
+    git
+    pre-commit
+    clippy
+    zip
+    unzip
+    p7zip
+    ripgrep
+    fd
+    xclip
+    eza # improved ls
+
+    # Rust
+    rustc
+    cargo
+
+    # Python
+    python3
+    python3Packages.pip
+
+    # C
+    gnumake
+    gcc
+    gdb
+
+    # Go
+    go
+
+    # Nix
+    alejandra
+
+    # Documentation
+    man-pages
+    man-pages-posix
+    tldr
+  ];
+}
