@@ -15,16 +15,6 @@
 
   nixpkgs.config.allowUnfree = true;
 
-  programs.zsh = {
-    enable = true;
-    enableCompletion = true;
-
-    interactiveShellInit = lib.concatStringsSep "\n\n" (map builtins.readFile [
-      "${vars.dotfiles}/bash/.bashrc"
-      "${vars.dotfiles}/bash/epita.bashrc"
-    ]);
-  };
-
   system.defaults = {
     dock.autohide = true;
     finder.ShowPathbar = true;

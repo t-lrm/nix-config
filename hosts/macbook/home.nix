@@ -1,4 +1,5 @@
 {
+  lib,
   pkgs,
   username,
   vars,
@@ -8,6 +9,14 @@
   home.homeDirectory = "/Users/${username}"; # obsolete ?
 
   home.stateVersion = "25.11";
+
+  programs.zsh = {
+    enable = true;
+    initContent = lib.concatStringsSep "\n\n" (map builtins.readFile [
+      "${vars.dotfiles}/bash/.bashrc"
+      "${vars.dotfiles}/bash/epita.bashrc"
+    ]);
+  };
 
   imports = [
     "${vars.programs}/vim.nix"
