@@ -15,7 +15,7 @@ in {
     enableDefaultConfig = false;
 
     matchBlocks."*" = {
-      identityAgent = onePasswordAgent;
+      identityAgent = "\"${onePasswordAgent}\"";
     };
   };
 }
