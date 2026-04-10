@@ -44,6 +44,7 @@
     #libreoffice-still
     vscode
     spotify
+    ollama
     claude-code
 
     # Tools
