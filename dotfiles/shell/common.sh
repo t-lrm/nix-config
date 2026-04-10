@@ -24,17 +24,19 @@ alias gl='git log --all --graph --decorate=full'
 # Python virtualenv helper
 alias venv='source .venv/bin/activate'
 
-# Claude code
-alias claude-local='ANTHROPIC_BASE_URL=http://localhost:11434 ANTHROPIC_AUTH_TOKEN=ollama claude --model qwen3.5:27b'
-
-# --- Functions ---
-
 # Quick mkcd - make directory and cd into it
 mkcd () {
     mkdir -p "$1" && cd "$1"
 }
 
 # Copy text to clipboard
-cb () {
+cb() {
+  if command -v pbcopy >/dev/null 2>&1; then
+    pbcopy < "$1"
+  elif command -v xclip >/dev/null 2>&1; then
     xclip -selection clipboard < "$1"
+  else
+    echo "No clipboard tool found"
+    return 1
+  fi
 }

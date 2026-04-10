@@ -13,8 +13,9 @@
   programs.zsh = {
     enable = true;
     initContent = lib.concatStringsSep "\n\n" (map builtins.readFile [
-      "${vars.dotfiles}/bash/.bashrc"
-      "${vars.dotfiles}/bash/epita.bashrc"
+      "${vars.dotfiles}/shell/common.sh"
+      "${vars.dotfiles}/shell/epita.sh"
+      "${vars.dotfiles}/zsh/zshrc"
     ]);
   };
 
@@ -59,8 +60,8 @@
     p7zip
     ripgrep
     fd
-    xclip
     eza # improved ls
+    pbcopy
 
     # Rust
     rustc

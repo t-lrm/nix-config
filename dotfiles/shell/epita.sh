@@ -30,15 +30,15 @@ _tag_and_push() {
   local prefix="$1"
   local confirm="${2:-0}"
   local tag
+  local answer
 
   _require_git_repo "$prefix" || return 1
-
   tag="$(_next_tag "$prefix")" || return 1
 
   if (( confirm )); then
-    echo "About to run: git tag -a '$tag' -m '$tag'"
-    local answer
-    read -r -p "Continue? [y/N] " answer
+    printf "About to run: git tag -a '%s' -m '%s'\n" "$tag" "$tag"
+    printf "Continue? [y/N] "
+    read -r answer
     case "$answer" in
       [yY]|[yY][eE][sS]) ;;
       *) echo "Aborted."; return 1 ;;

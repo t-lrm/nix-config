@@ -1,4 +1,5 @@
 {
+  lib,
   config,
   pkgs,
   username,
@@ -13,6 +14,16 @@
     };
   };
 
+  programs.bash = {
+    enable = true;
+    enableCompletion = true;
+    bashrcExtra = lib.concatStringsSep "\n\n" (map builtins.readFile [
+      "${vars.dotfiles}/shell/common.sh"
+      "${vars.dotfiles}/shell/epita.sh"
+      "${vars.dotfiles}/bash/bashrc"
+    ]);
+  };
+
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
@@ -21,7 +32,6 @@
 
   imports = [
     "${vars.modules}/i3.nix"
-    "${vars.modules}/shell.nix"
 
     "${vars.programs}/vim.nix"
     "${vars.programs}/neovim.nix"
