@@ -38,6 +38,7 @@
 
       -- Basic options
       vim.opt.number = true
+      vim.opt.colorcolumn = "80"
       vim.opt.laststatus = 2
       vim.opt.wrap = true
       vim.opt.linebreak = true
