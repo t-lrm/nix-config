@@ -42,7 +42,6 @@
     #vlc
     #libreoffice-still
     vscode
-    spotify
     ollama
     claude-code
 

@@ -1,0 +1,1 @@
+alias nd='nix develop -c zsh'

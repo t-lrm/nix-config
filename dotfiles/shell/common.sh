@@ -40,3 +40,36 @@ cb() {
     return 1
   fi
 }
+
+makeinit() {
+  cat > Makefile <<'EOF'
+CC = gcc
+CPPFLAGS = -MMD
+CFLAGS = -Wall -Wextra -Werror -O3
+LDFLAGS =
+LDLIBS =
+
+SRC = main.c average.c max.c
+OBJ = ${SRC:.c=.o}
+DEP = ${SRC:.c=.d}
+
+all: main
+
+main: ${OBJ}
+
+clean:
+	${RM} ${OBJ}
+	${RM} ${DEP}
+	${RM} main
+
+.PHONY: all clean
+
+-include ${DEP}
+EOF
+
+  echo "Info: if you want to import a dynamic library, use:"
+  echo '  $(pkg-config --cflags <package-name>)'
+  echo '  $(pkg-config --libs <package-name>)'
+  echo
+  echo "Use 'pkg-config --list-all' to list the available packages."
+}
