@@ -77,6 +77,10 @@
     # Go
     go
 
+    # Markup languages
+    jq
+    yq
+
     # Nix
     alejandra
 
