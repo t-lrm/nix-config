@@ -105,6 +105,7 @@
     gnumake
     gcc
     gdb
+    clang-tools.out
 
     # Go
     go
