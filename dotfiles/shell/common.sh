@@ -49,7 +49,7 @@ CFLAGS = -Wall -Wextra -Werror -O3
 LDFLAGS =
 LDLIBS =
 
-SRC = main.c average.c max.c
+SRC = main.c
 OBJ = ${SRC:.c=.o}
 DEP = ${SRC:.c=.d}
 
