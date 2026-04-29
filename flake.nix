@@ -1,7 +1,8 @@
 {
-  description = "My custom flake";
+  description = "My NixOS, nix-darwin, and Home Manager configurations";
 
-    inputs = {
+  
+  inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.11";
 
     nix-darwin = {
@@ -28,12 +29,6 @@
     nix-index-database,
     ...
   }: let
-    mkPkgs = system:
-      import nixpkgs {
-        inherit system;
-        config.allowUnfree = true;
-      };
-
     mkArgs = {
       host,
       username,
@@ -41,8 +36,22 @@
     }: let
       vars = import ./hosts/variables.nix;
     in {
-      inherit host username vars;
+      inherit inputs host username system vars;
       myPkgs = self.packages.${system} or {};
+    };
+
+    mkHomeManagerModule = {
+      host,
+      username,
+      system,
+    }: {
+      home-manager.useGlobalPkgs = true;
+      home-manager.useUserPackages = true;
+      home-manager.backupFileExtension = "home-manager-backup";
+
+      home-manager.extraSpecialArgs = mkArgs {inherit host username system;};
+
+      home-manager.users.${username} = import ./hosts/${host}/home.nix;
     };
 
     mkNixosHost = {
@@ -51,7 +60,6 @@
       system,
     }:
       nixpkgs.lib.nixosSystem {
-        inherit system;
         specialArgs = mkArgs {inherit host username system;};
 
         modules = [
@@ -59,17 +67,7 @@
           nix-index-database.nixosModules.default
 
           home-manager.nixosModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "home-manager-backup";
-
-            home-manager.extraSpecialArgs =
-              mkArgs {inherit host username system;};
-
-            home-manager.users.${username} =
-              import ./hosts/${host}/home.nix;
-          }
+          (mkHomeManagerModule {inherit host username system;})
         ];
       };
 
@@ -86,33 +84,7 @@
           nix-index-database.darwinModules.nix-index
 
           home-manager.darwinModules.home-manager
-          {
-            home-manager.useGlobalPkgs = true;
-            home-manager.useUserPackages = true;
-            home-manager.backupFileExtension = "home-manager-backup";
-
-            home-manager.extraSpecialArgs =
-              mkArgs {inherit host username system;};
-
-            home-manager.users.${username} =
-              import ./hosts/${host}/home.nix;
-          }
-        ];
-      };
-
-    mkHome = {
-      host,
-      username,
-      system,
-    }:
-      home-manager.lib.homeManagerConfiguration {
-        pkgs = mkPkgs system;
-
-        extraSpecialArgs = mkArgs {inherit host username system;};
-
-        modules = [
-          ./hosts/${host}/home.nix
-          nix-index-database.homeModules.default
+          (mkHomeManagerModule {inherit host username system;})
         ];
       };
   in {
@@ -123,18 +95,6 @@
     };
 
     darwinConfigurations.macbook = mkDarwinHost {
-      host = "macbook";
-      username = "baunky";
-      system = "aarch64-darwin";
-    };
-
-    homeConfigurations."nixos@thinkpad" = mkHome {
-      host = "thinkpad";
-      username = "nixos";
-      system = "x86_64-linux";
-    };
-
-    homeConfigurations."baunky@macbook" = mkHome {
       host = "macbook";
       username = "baunky";
       system = "aarch64-darwin";

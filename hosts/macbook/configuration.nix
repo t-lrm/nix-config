@@ -1,22 +1,14 @@
 {
-  pkgs,
   username,
-  lib,
-  vars,
+  system,
   ...
 }: {
-  nixpkgs.hostPlatform = "aarch64-darwin";
+  nixpkgs.hostPlatform = "${system}";
   system.stateVersion = 6;
 
   users.users.${username}.home = "/Users/${username}";
   system.primaryUser = "${username}";
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-
   nixpkgs.config.allowUnfree = true;
-
-  system.defaults = {
-    finder.ShowPathbar = true;
-    finder.ShowStatusBar = true;
-  };
 }

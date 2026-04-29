@@ -86,5 +86,5 @@
     i3status-rust # better i3status
   ];
 
-  system.stateVersion = "25.11"; # DO NOT CHANGE
+  system.stateVersion = var.stateVersion; # DO NOT CHANGE
 }

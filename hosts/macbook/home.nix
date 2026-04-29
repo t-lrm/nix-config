@@ -8,7 +8,7 @@
   home.username = username;
   home.homeDirectory = "/Users/${username}"; # obsolete ?
 
-  home.stateVersion = "25.11";
+  home.stateVersion = vars.stateVersion;
 
   programs.zsh = {
     enable = true;
@@ -85,6 +85,7 @@
 
     # Nix
     alejandra
+    nixd
 
     # Documentation
     man-pages
