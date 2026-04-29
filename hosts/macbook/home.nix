@@ -44,6 +44,7 @@
     vscode
     ollama
     claude-code
+    qbittorrent
 
     # Tools
     tmux

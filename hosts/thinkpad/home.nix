@@ -68,6 +68,7 @@
     libreoffice-still
     vscode
     spotify
+    qbittorrent
 
     # System tools
     htop
