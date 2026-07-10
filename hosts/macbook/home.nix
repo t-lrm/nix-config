@@ -10,6 +10,13 @@
 
   home.stateVersion = vars.stateVersion;
 
+  xdg = {
+    enable = true;
+    configFile = {
+      "aerospace/aerospace.toml".source = "${vars.dotfiles}/aerospace/aerospace.toml";
+    };
+  };
+
   programs.zsh = {
     enable = true;
     initContent = lib.concatStringsSep "\n\n" (map builtins.readFile [
