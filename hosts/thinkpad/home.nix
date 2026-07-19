@@ -93,6 +93,7 @@
     fd
     xclip
     eza # improved ls
+    veracrypt
 
     # Rust
     rustc
