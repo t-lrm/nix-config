@@ -73,7 +73,10 @@
   security.pam.services.login.enableGnomeKeyring = true;
 
   # Enable docker
-  virtualisation.docker.enable = true;
+  virtualisation.docker = {
+      enable = true;
+      package = pkgs.docker_29;
+  };
 
   programs.nix-index-database.comma.enable = true;
 
