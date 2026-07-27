@@ -82,7 +82,7 @@ automatically-unhide-macos-hidden-apps = false
     7 = 'secondary'
     8 = 'main'
     9 = 'main'
-    0 = 'main'
+    10 = 'main'
 
 [[on-window-detected]]
     if.app-id = 'com.hnc.Discord'
