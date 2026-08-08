@@ -84,13 +84,16 @@ automatically-unhide-macos-hidden-apps = false
     9 = 'main'
     10 = 'main'
 
+# To get the id of an app by their name, you can run the following command:
+# osascript -e 'id of application "Finder"'
+
 [[on-window-detected]]
     if.app-id = 'com.hnc.Discord'
     run = ['move-node-to-workspace 9 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.1password.1password'
-    run = ['move-node-to-workspace 0 --focus-follows-window']
+    run = ['move-node-to-workspace 10 --focus-follows-window']
 
 [[on-window-detected]]
     if.app-id = 'com.apple.finder'
@@ -98,6 +101,10 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-id = 'com.apple.MobileSMS' # Messages app
+    run = 'layout floating'
+
+[[on-window-detected]]
+    if.app-id = 'net.whatsapp.WhatsApp'
     run = 'layout floating'
 
 [[on-window-detected]]
