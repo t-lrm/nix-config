@@ -4,13 +4,13 @@
   pkgs,
   username,
   vars,
+  programs,
   ...
 }: {
   xdg = {
     enable = true;
     configFile = {
       "i3status-rust/config.toml".source = "${vars.dotfiles}/i3status-rust/config.toml";
-      "git/config".source = "${vars.dotfiles}/git/config";
     };
   };
 
@@ -29,6 +29,9 @@
 
   # Make Home Manager manage itself
   programs.home-manager.enable = true;
+
+  # SSH agent used to sign commits
+  programs.git.settings.gpg.ssh.program = "TODO"; # you can get the path inside 1Password
 
   imports = [
     "${vars.modules}/i3.nix"
