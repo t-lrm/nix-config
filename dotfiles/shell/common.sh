@@ -1,10 +1,13 @@
 # Basic shortcuts
-alias ll='eza --icons=always --hyperlink --sort=name'
+alias ls='eza -1 --icons=always --hyperlink --sort=name'
 alias la='eza --all --long --icons=always --hyperlink --sort=name --total-size --git'
 alias lt='eza --tree --icons=always --hyperlink --group-directories-first --sort=name --total-size --git --all --ignore-glob="__pycache__|.venv|.git|.idea|.vscode"'
+alias t3='tree . -I "obj|bin|.idea|.git" -a'
+alias y='yazi'
 alias ..='cd ..'
 alias ...='cd ../..'
-alias t3='tree . -I "obj|bin|.idea|.git" -a'
+alias ....='cd ../../..'
+alias .....='cd ../../../..'
 
 # Git shortcuts
 alias gs='git status'

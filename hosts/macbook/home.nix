@@ -44,10 +44,7 @@
 
     # Apps
     firefox
-    #tor-browser
     obsidian
-    #vlc
-    #libreoffice-still
     vscode
     ollama
     claude-code
@@ -68,6 +65,8 @@
     ripgrep
     fd
     eza # improved ls
+    yarn
+    nodejs
 
     # Rust
     rustc

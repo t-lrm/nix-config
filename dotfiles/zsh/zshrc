@@ -1,1 +1,9 @@
 alias nd='nix develop -c zsh'
+
+# https://docs.docker.com/engine/cli/completion/#zsh
+FPATH="$HOME/.docker/completions:$FPATH"
+autoload -Uz compinit
+compinit
+
+# Expose docker to user path
+export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
