@@ -74,8 +74,8 @@
 
   # Enable docker
   virtualisation.docker = {
-      enable = true;
-      package = pkgs.docker_29;
+    enable = true;
+    package = pkgs.docker_29;
   };
 
   programs.nix-index-database.comma.enable = true;
