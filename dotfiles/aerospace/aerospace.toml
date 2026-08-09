@@ -89,10 +89,6 @@ automatically-unhide-macos-hidden-apps = false
 
 [[on-window-detected]]
     if.app-id = 'com.hnc.Discord'
-    run = ['move-node-to-workspace 9 --focus-follows-window']
-
-[[on-window-detected]]
-    if.app-id = 'com.1password.1password'
     run = ['move-node-to-workspace 10 --focus-follows-window']
 
 [[on-window-detected]]
