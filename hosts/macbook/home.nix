@@ -8,6 +8,7 @@
 }: {
   home.username = username;
   home.homeDirectory = "/Users/${username}"; # obsolete ?
+  home.sessionPath = [ "$HOME/.local/bin" ];
 
   home.stateVersion = vars.stateVersion;
 
@@ -48,6 +49,7 @@
 
     # Apps
     firefox
+    google-chrome
     obsidian
     vscode
     ollama
@@ -71,6 +73,8 @@
     eza # improved ls
     yarn
     nodejs
+    pipx
+    direnv
 
     # Rust
     rustc
@@ -79,6 +83,7 @@
     # Python
     python3
     python3Packages.pip
+    poetry
 
     # C
     gnumake

@@ -7,3 +7,17 @@ compinit
 
 # Expose docker to user path
 export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
+
+# Completion for CMS (gitlab.cri.epita.fr)
+_cms_completion() {
+  eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _CMS_COMPLETE=complete_zsh cms)
+}
+compdef _cms_completion cms
+
+# Completion for Mounette (gitlab.cri.epita.fr)
+_mounette_completion() {
+  eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _MOUNETTE_COMPLETE=complete_zsh mounette)
+}
+compdef _mounette_completion mounette
+
+eval "$(direnv hook zsh)"

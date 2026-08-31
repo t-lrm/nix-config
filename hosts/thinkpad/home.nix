@@ -105,6 +105,7 @@
     # Python
     python3
     python3Packages.pip
+    poetry
 
     # C
     gnumake
