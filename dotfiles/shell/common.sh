@@ -24,12 +24,36 @@ alias gr='git restore -p'
 alias grs='git restore --staged'
 alias gl='git log --all --graph --decorate=full'
 
+# Docker shortcuts
+alias dc="docker compose"
+
 # Python virtualenv helper
 alias venv='source .venv/bin/activate'
 
-# Quick mkcd - make directory and cd into it
+# Make directory and cd into it
 mkcd () {
     mkdir -p "$1" && cd "$1"
+}
+
+mktmp () {
+    if [ -z $1 ]; then
+      cd "$(mktemp -d /tmp/XXXXXX)"
+    else
+      mkdir -p "$1" && cd "$1"
+    fi
+    vim
+}
+
+# Copy working directory to clipboard
+cwd() {
+  if command -v pbcopy >/dev/null 2>&1; then
+    echo "$(pwd)/$1" | pbcopy
+  elif command -v xclip >/dev/null 2>&1; then
+    echo "Command not implemented: TODO"
+  else
+    echo "No clipboard tool found"
+    return 1
+  fi
 }
 
 # Copy text to clipboard
