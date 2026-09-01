@@ -72,6 +72,18 @@ automatically-unhide-macos-hidden-apps = false
     enter = 'mode main'
     esc = 'mode main'
 
+[workspace-to-monitor-force-assignment]
+    1 = 'main'
+    2 = 'secondary'
+    3 = 'main'
+    4 = 'secondary'
+    5 = 'main'
+    6 = 'secondary'
+    7 = 'main' 
+    8 = 'secondary'
+    9 = 'main'
+    10 = 'main'
+
 # To get the id of an app by their name, you can run the following command:
 # osascript -e 'id of application "Finder"'
 
