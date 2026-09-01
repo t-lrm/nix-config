@@ -75,6 +75,7 @@
     nodejs
     pipx
     direnv
+    gnupg
 
     # Rust
     rustc

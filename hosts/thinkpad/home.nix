@@ -97,6 +97,11 @@
     xclip
     eza # improved ls
     veracrypt
+    yarn
+    nodejs
+    pipx
+    direnv
+    gnupg
 
     # Rust
     rustc
