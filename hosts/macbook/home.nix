@@ -12,9 +12,6 @@
 
   home.stateVersion = vars.stateVersion;
 
-  # SSH agent used to sign commits
-  programs.git.settings.gpg.ssh.program = "/Applications/1Password.app/Contents/MacOS/op-ssh-sign";
-
   xdg = {
     enable = true;
     configFile = {

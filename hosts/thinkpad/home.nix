@@ -30,9 +30,6 @@
   # Make Home Manager manage itself
   programs.home-manager.enable = true;
 
-  # SSH agent used to sign commits
-  programs.git.settings.gpg.ssh.program = "TODO"; # you can get the path inside 1Password
-
   imports = [
     "${vars.modules}/i3.nix"
 
@@ -64,6 +61,7 @@
 
     # Apps
     firefox
+    chromium
     tor-browser
     obsidian
     discord

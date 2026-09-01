@@ -7,7 +7,7 @@
         name = "Timothée Le Roux Maertens";
         email = "timothee.le-roux-maertens@epita.fr";
 
-        signingkey = "~/.ssh/git-signing.pub"; # public ssh key to sign commits
+        signingkey = "~/.git-signing.pub"; # public key to sign commits
       };
 
       gpg.format = "ssh";
