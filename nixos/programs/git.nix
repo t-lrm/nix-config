@@ -7,10 +7,11 @@
         name = "Timothée Le Roux Maertens";
         email = "timothee.le-roux-maertens@epita.fr";
 
-        signingkey = "~/.git-signing.pub"; # public key to sign commits
+        # gpg fingerprint (can be found with 'gpg -k')
+        signingkey = "DDDE3652BD24ED9E6822793DEF63CCDFBECDC634";
       };
 
-      gpg.format = "ssh";
+      gpg.format = "openpgp";
       commit.gpgsign = true;
 
       apply.whitespace = "error";
