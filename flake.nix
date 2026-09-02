@@ -98,7 +98,7 @@
       system,
     }:
       home-manager.lib.homeManagerConfiguration {
-        pkgs = mkPkgs system;
+        pkgs = nixpkgs.legacyPackages.${system};
 
         extraSpecialArgs = mkArgs {inherit host username system;};
 
