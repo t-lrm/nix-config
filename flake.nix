@@ -92,6 +92,21 @@
           (mkHomeManagerModule {inherit host username system;})
         ];
       };
+    mkHome = {
+      host,
+      username,
+      system,
+    }:
+      home-manager.lib.homeManagerConfiguration {
+        pkgs = mkPkgs system;
+
+        extraSpecialArgs = mkArgs {inherit host username system;};
+
+        modules = [
+          ./hosts/${host}/home.nix
+          nix-index-database.homeModules.default
+        ];
+      };
   in {
     nixosConfigurations.thinkpad = mkNixosHost {
       host = "thinkpad";
