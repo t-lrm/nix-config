@@ -8,11 +8,6 @@
   ...
 }: {
   imports = [
-    ./hardware-configuration.nix
-    (vars.services + "/audio.nix")
-    (vars.services + "/bluetooth.nix")
-    (vars.services + "/networking.nix")
-    (vars.services + "/xserver.nix")
     (vars.services + "/virtualmachine.nix")
   ];
 
@@ -44,7 +39,7 @@
       "libvirtd"
     ];
     linger = true; # enable running script on startup
-    initialHashedPassword = "$y$j9T$GCgx4etC0jxe70dgFiNEO1$pclGOw8/W3clravgoHFASZHg6ElgK9QD9NMMi4FMTH/";
+    initialHashedPassword = "$y$j9T$KQddTAlIoPie.KpNwGdw7/$zQ6KrkEVj6IqjFLp4eXTJCvthV6R1gqoLepJV.GhYO9";
   };
 
   # Garbage collector
@@ -62,12 +57,6 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
-
-  # 1Password GUI
-  programs._1password-gui = {
-    enable = true;
-    polkitPolicyOwners = [username];
-  };
 
   # Setup keyring needed by 1Password
   services.gnome.gnome-keyring.enable = true;

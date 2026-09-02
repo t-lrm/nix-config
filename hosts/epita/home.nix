@@ -63,6 +63,11 @@
     jetbrains-mono
     font-awesome
 
+    # i3 related tools
+    rofi # app launcher
+    i3lock-color # better i3lock
+    i3status-rust # better i3status
+
     # Apps
     firefox
     obsidian

@@ -122,7 +122,7 @@
 
     homeConfigurations.epita = mkHome {
       host = "epita";
-      username = "tim";
+      username = "nixos";
       system = "x86_64-linux";
     };
   };
