@@ -9,7 +9,7 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    (vars.services + "/virtualmachine.nix")
+    (vars.services + "/xserver.nix")
   ];
 
   i18n.defaultLocale = "en_US.UTF-8";
