@@ -28,7 +28,7 @@
   home.homeDirectory = "/home/${username}";
 
   home.file.".i3lock-custom" = {
-      source = "${var.custom}/i3lock-custom.sh";
+      source = "${vars.custom}/i3lock-custom.sh";
       executable = true;
   };
 
