@@ -39,7 +39,7 @@
       "libvirtd"
     ];
     linger = true; # enable running script on startup
-    initialHashedPassword = "$y$j9T$KQddTAlIoPie.KpNwGdw7/$zQ6KrkEVj6IqjFLp4eXTJCvthV6R1gqoLepJV.GhYO9";
+    initialHashedPassword = "$y$j9T$GCgx4etC0jxe70dgFiNEO1$pclGOw8/W3clravgoHFASZHg6ElgK9QD9NMMi4FMTH/";
   };
 
   # Garbage collector

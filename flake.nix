@@ -108,6 +108,12 @@
         ];
       };
   in {
+    nixosConfigurations.epita = mkNixosHost {
+      host = "epita";
+      username = "nixos";
+      system = "x86_64-linux";
+    };
+
     nixosConfigurations.thinkpad = mkNixosHost {
       host = "thinkpad";
       username = "nixos";
