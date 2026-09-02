@@ -119,5 +119,11 @@
       username = "baunky";
       system = "aarch64-darwin";
     };
+
+    homeConfigurations.epita = mkHome {
+      host = "epita";
+      username = "tim";
+      system = "x86_64-linux";
+    };
   };
 }
