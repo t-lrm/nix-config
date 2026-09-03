@@ -8,7 +8,7 @@
 }: {
   home.username = username;
   home.homeDirectory = "/Users/${username}"; # obsolete ?
-  home.sessionPath = [ "$HOME/.local/bin" ];
+  home.sessionPath = ["$HOME/.local/bin"];
 
   home.stateVersion = vars.stateVersion;
 

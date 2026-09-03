@@ -28,8 +28,8 @@
   home.homeDirectory = "/home/${username}";
 
   home.file.".i3lock-custom" = {
-      source = "${vars.custom}/i3lock-custom.sh";
-      executable = true;
+    source = "${vars.custom}/i3lock-custom.sh";
+    executable = true;
   };
 
   # Make Home Manager manage itself
