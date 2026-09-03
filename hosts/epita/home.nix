@@ -135,6 +135,10 @@
     man-pages-posix
     tldr
 
+    # Required to mount afs from home
+    kb5
+    sshfs
+
     (pkgs.writeShellApplication {
       name = "generate_architecture";
       runtimeInputs = [pkgs.python3];
