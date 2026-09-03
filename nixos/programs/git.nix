@@ -51,9 +51,14 @@
           insteadOf = "prolo:";
         };
       };
+
+      # Required to mount afs from home
+      "ssh.cri.epita.fr" = {
+        GSSAPIAuthentication = "yes";
+        GSSAPIDelegateCredentials = "yes";
+      };
     };
 
     ignores = [".env" "*.swp" ".DS_Store"];
-
   };
 }
