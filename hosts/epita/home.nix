@@ -70,9 +70,6 @@
 
     # Apps
     firefox
-    obsidian
-    vlc
-    libreoffice-still
     qbittorrent
 
     # System tools
@@ -98,7 +95,6 @@
     fd
     xclip
     eza # improved ls
-    veracrypt
     yarn
     nodejs
     pipx
@@ -136,7 +132,7 @@
     tldr
 
     # Required to mount afs from home
-    kb5
+    krb5
     sshfs
 
     (pkgs.writeShellApplication {

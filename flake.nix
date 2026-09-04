@@ -128,7 +128,7 @@
 
     homeConfigurations.epita = mkHome {
       host = "epita";
-      username = "nixos";
+      username = "timothee.le-roux-maertens";
       system = "x86_64-linux";
     };
   };
