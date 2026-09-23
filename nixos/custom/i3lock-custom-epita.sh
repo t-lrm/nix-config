@@ -18,6 +18,8 @@ transparent=00000000
 shadow_col="000000b3"
 shadow_w="2"
 
+locked_since="Locked since $(date +%H:%M)"
+
 i3lock-color \
   --show-failed-attempts \
   --keylayout 2 \
@@ -41,7 +43,7 @@ i3lock-color \
   --blur 1 \
   --clock \
   --time-str="%H:%M:%S" \
-  --date-str="%d/%m/%Y" \
+  --date-str="$locked_since" \
   --verif-text="..." \
   --wrong-text="Failed" \
   --noinput="No Input" \
@@ -53,7 +55,7 @@ i3lock-color \
   --pass-screen-keys \
   --pass-volume-keys \
   --time-size=32 \
-  --date-size=18 \
+  --date-size=14 \
   --layout-size=10 \
   --time-font="JetBrains Mono:style=Bold" \
   --date-font="JetBrains Mono" \

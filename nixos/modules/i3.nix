@@ -1,6 +1,7 @@
 {pkgs, ...}: let
   mod = "Mod4";
   terminal = "${pkgs.kitty}/bin/kitty";
+  fileexplorer = "${pkgs.yazi}/bin/yazi";
   appmanager = "${pkgs.rofi}/bin/rofi -show run";
   refreshI3status = "killall -SIGUSR1 i3status-rs";
   screenshot = "flameshot gui";
@@ -24,7 +25,7 @@ in {
         {command = "sleep 1 && pactl set-sink-mute @DEFAULT_SINK@ 1";}
         {command = "sleep 1 && brightnessctl set 80%";}
 
-        {command = ''firefox -new-instance -new-window "https://app.todoist.com/app/today#" -new-tab "https://chatgpt.com/?temporary-chat=true"'';}
+        {command = ''firefox -new-instance'';}
         {command = "1password";}
         {command = "discord";}
         {command = "${pkgs.i3}/bin/i3-msg 'workspace number 1'";}
@@ -108,9 +109,9 @@ in {
 
         "${mod}+Shift+c" = "reload";
         "${mod}+Shift+r" = "restart";
-        "${mod}+y" = "exec ${terminal} yazi";
+        "${mod}+y" = "exec ${terminal} ${fileexplorer}";
 
-        "${mod}+Shift+x" = "exec --no-startup-id /etc/i3lock-custom";
+        "${mod}+Shift+x" = "exec --no-startup-id i3lock-custom";
         "${mod}+Shift+e" = ''exec "i3-nagbar -t warning -m 'Do you really want to shutdown the computer?' -B 'Yes, shutdown' 'shutdown now'"'';
         "${mod}+r" = "mode resize";
         "${mod}+o" = "mode launcher";

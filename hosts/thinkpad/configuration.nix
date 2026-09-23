@@ -79,6 +79,11 @@
     package = pkgs.docker_29;
   };
 
+  programs.gnupg.agent = {
+    enable = true;
+    pinentryPackage = pkgs.pinentry-curses;
+  };
+
   programs.nix-index-database.comma.enable = true;
 
   environment.systemPackages = with pkgs; [

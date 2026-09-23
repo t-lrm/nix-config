@@ -7,28 +7,32 @@
   programs,
   ...
 }: {
-  xdg = {
-    enable = true;
-    configFile = {
-      "i3status-rust/config.toml".source = "${vars.dotfiles}/i3status-rust/config.toml";
-    };
-  };
+  # Make Home Manager manage itself
+  programs.home-manager.enable = true;
+
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   programs.bash = {
     enable = true;
     enableCompletion = true;
     bashrcExtra = lib.concatStringsSep "\n\n" (map builtins.readFile [
-      "${vars.dotfiles}/shell/common.sh"
+      "${vars.dotfiles}/shell/common-aliases.sh"
+      "${vars.dotfiles}/shell/common-functions.sh"
       "${vars.dotfiles}/shell/epita.sh"
       "${vars.dotfiles}/bash/bashrc"
     ]);
   };
 
-  home.username = username;
-  home.homeDirectory = "/home/${username}";
+  xdg = {
+    enable = true;
+    configFile = {
+      "i3status-rust/config.toml".source = "${vars.dotfiles}/i3status-rust/config.toml";
+      "clang-format".source = "${vars.dotfiles}/clang-format/clang-format-epita";
+      "gdbinit".source = "${vars.dotfiles}/gdb/gdbinit";
+    };
+  };
 
-  # Make Home Manager manage itself
-  programs.home-manager.enable = true;
 
   imports = [
     "${vars.modules}/i3.nix"
@@ -149,6 +153,13 @@
       runtimeInputs = [pkgs.python3];
       text = ''
         exec ${pkgs.python3}/bin/python3 ${(vars.custom + "/generate_architecture.py")} "$@"
+      '';
+    })
+
+    (pkgs.writeShellApplication {
+      name = "i3lock-custom";
+      text = ''
+        exec ${(vars.custom + "/i3lock-custom.sh")}
       '';
     })
   ];
