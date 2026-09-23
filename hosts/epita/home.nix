@@ -10,6 +10,8 @@
   # Make Home Manager manage itself
   # programs.home-manager.enable = true;
 
+  programs.command-not-found.enable = false;
+
   home.username = username;
   home.homeDirectory = "/home/${username}";
 
