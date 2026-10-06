@@ -108,6 +108,7 @@
     # Python
     python3
     python3Packages.pip
+    python3Packages.ipython
     poetry
 
     # C
