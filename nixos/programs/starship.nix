@@ -5,7 +5,7 @@
       format = "$username$hostname$directory$git_branch$python$nix_shell$character";
       username = {
         show_always = true;
-        format = "$user@";
+        format = "t-lrm@";
       };
       hostname = {
         ssh_only = false;

@@ -5,7 +5,7 @@
     themeFile = "OneHalfDark";
 
     font.name = "Jetbrains Mono";
-    font.size = 14;
+    font.size = 11;
 
     shellIntegration.mode = "no-cursor";
 
