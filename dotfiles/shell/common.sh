@@ -1,3 +1,5 @@
+eval "$(direnv hook "$SHELL")"
+
 # Basic shortcuts
 alias ls='eza -1 --icons=always --hyperlink --sort=name'
 alias la='eza --all --long --icons=always --hyperlink --sort=name --total-size --git'
@@ -18,6 +20,7 @@ alias gcl='git clone'
 alias gp='git push'
 alias gpt='git push --follow-tags'
 alias gt='git tag -ma'
+alias gtl='git tag --list'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gr='git restore -p'

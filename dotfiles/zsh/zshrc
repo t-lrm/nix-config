@@ -19,5 +19,3 @@ _mounette_completion() {
   eval $(env _TYPER_COMPLETE_ARGS="${words[1,$CURRENT]}" _MOUNETTE_COMPLETE=complete_zsh mounette)
 }
 compdef _mounette_completion mounette
-
-eval "$(direnv hook zsh)"
