@@ -34,7 +34,6 @@
     };
   };
 
-
   imports = [
     "${vars.modules}/i3.nix"
 

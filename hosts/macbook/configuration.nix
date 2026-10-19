@@ -15,5 +15,4 @@
   environment.systemPath = [
     "/Applications/Aerospace.app/bin"
   ];
-
 }
