@@ -1,4 +1,4 @@
-{pkgs, ...}: {
+{pkgs, lib, vars, ...}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -7,56 +7,19 @@
 
     plugins = with pkgs.vimPlugins; [
       onedarkpro-nvim
+      nvim-lspconfig
+      (nvim-treesitter.withPlugins (parsers: [parsers.c parsers.python]))
+      neogen
       {
         plugin = fzf-lua;
-        type = "lua";
-        config = ''
-          require("fzf-lua").setup({})
-
-          vim.keymap.set("n", "<leader>ff", require("fzf-lua").files,
-            { desc = "Find files" })
-        '';
-      }
+        type = "lua";     }
     ];
 
-    extraLuaConfig = ''
-      vim.cmd('filetype plugin indent on')
-      vim.cmd('syntax on')
-
-      vim.g.mapleader = " "
-
-      -- Theme
-      require("onedarkpro").setup({
-        options = {
-          transparency = false,
-          cursorline = true,
-        }
-      })
-      vim.cmd("colorscheme onedark")
-
-      -- Basic options
-      vim.opt.number = true
-      vim.opt.colorcolumn = "80"
-      vim.opt.laststatus = 2
-      vim.opt.wrap = true
-      vim.opt.linebreak = true
-      vim.opt.scrolloff = 10
-      vim.opt.sidescrolloff = 10
-
-      vim.opt.incsearch = true
-      vim.opt.hlsearch = true
-      vim.opt.ignorecase = true
-      vim.opt.smartcase = true
-
-      vim.opt.expandtab = true
-      vim.opt.tabstop = 4
-      vim.opt.shiftwidth = 4
-      vim.opt.softtabstop = 4
-      vim.opt.smartindent = true
-      vim.opt.autoindent = true
-      vim.opt.termguicolors = true
-      vim.opt.signcolumn = "yes"
-    '';
+    extraLuaConfig = lib.concatStringsSep "\n" (map builtins.readFile [
+      "${vars.dotfiles}/neovim/options.lua"
+      "${vars.dotfiles}/neovim/lsp.lua"
+      "${vars.dotfiles}/neovim/keybinds.lua"
+    ]);
   };
 
   home.packages = with pkgs; [
@@ -66,6 +29,8 @@
     bat
 
     pyright
+    clang-tools
+    bear # run `bear -- make -B` to include compilation flag into LSP
     ruff
     black
     python3
