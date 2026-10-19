@@ -31,8 +31,4 @@ alias gl='git log --all --graph --decorate=full'
 alias dc='docker compose'
 
 # Misc
-alias grep='grep
-    --exclude-dir=.git
-    --exclude-dir=.venv
-    --exclude-dir=__pycache__
-    '
+alias grep='grep --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__'
