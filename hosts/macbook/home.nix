@@ -90,6 +90,7 @@
     gnumake
     gcc
     gdb
+    lldb
     clang-tools.out
 
     # Go
