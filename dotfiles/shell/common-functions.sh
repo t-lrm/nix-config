@@ -1,15 +1,27 @@
 # Make directory and cd into it
 mkcd () {
+    if [ -z "$1" ]; then
+        echo "Please provide a folder to make." > /dev/stderr
+        return 1
+    fi
+
     mkdir -p "$1" && cd "$1"
+}
+
+# Appends a .old at the end of the file
+mkold() {
+    echo "Not implemented" > /dev/stderr
+    return 1
 }
 
 # Create temporary directory and cd into
 mktmp () {
     if [ -z $1 ]; then
       cd "$(mktemp -d /tmp/XXXXXX)"
-    else
-      mkdir -p "$1" && cd "$1"
+      return
     fi
+
+    mkdir -p /tmp/"$1" && cd /tmp/"$1"
 }
 
 # Copy working directory to clipboard
@@ -19,7 +31,7 @@ cwd() {
   elif command -v xclip >/dev/null 2>&1; then
       echo "$(pwd)/$1" | xclip -selection clipboard 
   else
-    echo "No clipboard tool found"
+    echo "No clipboard tool found" > /dev/stderr
     return 1
   fi
 }
@@ -31,7 +43,7 @@ cb() {
   elif command -v xclip >/dev/null 2>&1; then
     xclip -selection clipboard < "$1"
   else
-    echo "No clipboard tool found"
+    echo "No clipboard tool found" > /dev/stderr
     return 1
   fi
 }
@@ -55,12 +67,15 @@ EOF
 # Create a simple Makefile
 makeinit() {
   cat > Makefile <<'EOF'
-CC = gcc
-CFLAGS = -std=c99 -pedantic -Werror -Wall -Wextra -Wvla
+CC ?= gcc
+CPPFLAGS +=
+CFLAGS += -std=c99 -pedantic -Werror -Wall -Wextra -Wvla
+LDFLAGS +=
+LDLIBS +=
 
 MAIN = main.c
 TSTS = tests.c
-SRCS =
+SRCS = # FIXME
 OBJS = ${SRC:.c=.o}
 DEST = main
 
@@ -68,11 +83,11 @@ all: ${DEST}
 
 ${DEST}: ${OBJS}
 
-check: LDFLAGS = -lcriterion
+check: LDFLAGS += -lcriterion
 check: ${TSTS} ${OBJS}
 
 debug: CFLAGS += -O0 -g3 -fsanitize=address
-debug: LDFLAGS = -fsanitize=address
+debug: LDFLAGS += -fsanitize=address
 debug: {SRCS}
 	${CC} ${CFLAGS} ${LDFLAGS} $^ -o $@
 

@@ -1,4 +1,6 @@
+# Aliases
 alias nd='nix develop -c zsh'
+alias db='docker build --platform linux/amd64'
 
 # https://docs.docker.com/engine/cli/completion/#zsh
 FPATH="$HOME/.docker/completions:$FPATH"

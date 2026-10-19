@@ -13,12 +13,14 @@ alias .....='cd ../../../..'
 alias gs='git status'
 alias ga='git add'
 alias gap='git add -Ap'
-alias gc='git commit -m'
+alias gc='git commit'
+alias gcm='git commit -m'
 alias gcl='git clone'
 alias gp='git push'
-alias gpt='git push --follow-tags'
+alias gpf='git push --follow-tags'
 alias gt='git tag -ma'
 alias gtl='git tag --list'
+alias gtd='git tag --delete'
 alias gd='git diff'
 alias gds='git diff --staged'
 alias gr='git restore -p'
@@ -27,3 +29,10 @@ alias gl='git log --all --graph --decorate=full'
 
 # Docker shortcuts
 alias dc='docker compose'
+
+# Misc
+alias grep='grep
+    --exclude-dir=.git
+    --exclude-dir=.venv
+    --exclude-dir=__pycache__
+    '
