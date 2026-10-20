@@ -12,7 +12,15 @@ vim.api.nvim_create_autocmd("LspAttach", {
     end,
 })
 
-vim.lsp.enable({ "pyright", "clangd" })
+vim.lsp.config("nixd", {
+    settings = {
+        nixd = {
+            formatting = { command = { "alejandra" } },
+        },
+    },
+})
+
+vim.lsp.enable({ "pyright", "clangd", "gopls", "nixd", "rust_analyzer" })
 
 require("neogen").setup({
     snippet_engine = "nvim",
@@ -21,4 +29,3 @@ require("neogen").setup({
         c = { template = { annotation_convention = "doxygen" } },
     },
 })
-

@@ -1,4 +1,9 @@
-{pkgs, lib, vars, ...}: {
+{
+  pkgs,
+  lib,
+  vars,
+  ...
+}: {
   programs.neovim = {
     enable = true;
     defaultEditor = true;
@@ -10,9 +15,7 @@
       nvim-lspconfig
       (nvim-treesitter.withPlugins (parsers: [parsers.c parsers.python]))
       neogen
-      {
-        plugin = fzf-lua;
-        type = "lua";     }
+      fzf-lua
     ];
 
     extraLuaConfig = lib.concatStringsSep "\n" (map builtins.readFile [
@@ -27,10 +30,12 @@
     fd
     fzf
     bat
-
     pyright
     clang-tools
     bear # run `bear -- make -B` to include compilation flag into LSP
+    gopls
+    nixd
+    rust-analyzer
     ruff
     black
     python3
