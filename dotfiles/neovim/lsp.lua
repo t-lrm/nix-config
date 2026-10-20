@@ -20,7 +20,14 @@ vim.lsp.config("nixd", {
     },
 })
 
-vim.lsp.enable({ "pyright", "clangd", "gopls", "nixd", "rust_analyzer" })
+vim.lsp.enable({
+    "pyright",
+    "clangd",
+    "gopls",
+    "nixd",
+    "rust_analyzer",
+    "yamlls",
+})
 
 require("neogen").setup({
     snippet_engine = "nvim",

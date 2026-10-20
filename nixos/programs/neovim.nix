@@ -36,6 +36,7 @@
     gopls
     nixd
     rust-analyzer
+    yaml-language-server
     ruff
     black
     python3
