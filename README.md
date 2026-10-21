@@ -5,7 +5,7 @@
 When setting up a new configuration for a NixOS machine, you can use this script to quickly load a configuration:
 ```sh
 cp -r hosts/thinkpad new-config
-nixos sudo nixos-generate-config --show-hardware-config > hosts/new-config
+sudo nixos-generate-config --show-hardware-config > hosts/new-config
 ```
 
 Then you can add this code in `flake.nix`:

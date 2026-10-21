@@ -120,18 +120,6 @@
       system = "x86_64-linux";
     };
 
-    nixosConfigurations.headless = nixpkgs.lib.nixosSystem {
-      specialArgs = mkArgs {
-        host = "headless";
-        username = "nixos";
-        system = "x86_64-linux";
-      };
-
-      modules = [
-        ./hosts/headless/configuration.nix
-      ];
-    };
-
     darwinConfigurations.macbook = mkDarwinHost {
       host = "macbook";
       username = "baunky";
