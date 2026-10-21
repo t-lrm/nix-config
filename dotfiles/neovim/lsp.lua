@@ -27,6 +27,7 @@ vim.lsp.enable({
     "nixd",
     "rust_analyzer",
     "yamlls",
+    "asm_lsp",
 })
 
 require("neogen").setup({
