@@ -15,5 +15,6 @@
 require("fzf-lua").setup({})
 
 vim.keymap.set("n", "<leader>ff", require("fzf-lua").files, { desc = "Find files" })
+vim.keymap.set("n", "<leader>fg", require("fzf-lua").live_grep, { desc = "Find files" })
 
 vim.keymap.set("n", "<leader>nd", require("neogen").generate, { desc = "Generate documentation" })
