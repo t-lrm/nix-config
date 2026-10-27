@@ -108,5 +108,8 @@
     man-pages
     man-pages-posix
     tldr
+
+    # Specific for GNS3 (provide telnet)
+    inetutils
   ];
 }
