@@ -33,6 +33,7 @@
   imports = [
     "${vars.programs}/vim.nix"
     "${vars.programs}/neovim.nix"
+    "${vars.programs}/emacs.nix"
     "${vars.programs}/git.nix"
     "${vars.programs}/ssh.nix"
     "${vars.programs}/starship.nix"
@@ -103,6 +104,9 @@
     # Nix
     alejandra
     nixd
+
+    # Shell
+    shellcheck
 
     # Documentation
     man-pages

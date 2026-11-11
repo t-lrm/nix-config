@@ -29,6 +29,7 @@
 
   environment.systemPackages = with pkgs; [
     vim
+    emacs
     git
     htop
     curl
