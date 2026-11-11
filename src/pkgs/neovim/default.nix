@@ -5,9 +5,6 @@
 }: {
   programs.neovim = {
     enable = true;
-    defaultEditor = true;
-    vimAlias = true;
-    viAlias = true;
 
     plugins = with pkgs.vimPlugins; [
       onedarkpro-nvim
@@ -18,9 +15,9 @@
     ];
 
     initLua = lib.concatStringsSep "\n" (map builtins.readFile [
-      ../dotfiles/neovim/options.lua
-      ../dotfiles/neovim/lsp.lua
-      ../dotfiles/neovim/keybinds.lua
+      ../config/options.lua
+      ../config/lsp.lua
+      ../config/keybinds.lua
     ]);
   };
 
@@ -31,7 +28,6 @@
     bat
     pyright
     clang-tools
-    bear # run `bear -- make -B` to include compilation flag into LSP
     gopls
     nixd
     rust-analyzer

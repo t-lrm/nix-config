@@ -5,16 +5,7 @@
   hostname,
   ...
 }: {
-  programs.zsh = {
-    enable = true;
-    initContent = lib.concatStringsSep "\n\n" (map builtins.readFile [
-      ../../dotfiles/shell/config.sh
-      ../../dotfiles/shell/common-aliases.sh
-      ../../dotfiles/shell/common-functions.sh
-      ../../dotfiles/shell/epita.sh
-      ../../dotfiles/zsh/zshrc
-    ]);
-  };
+  programs.zsh. enable = true;
 
   imports = [
     ../../pkgs/aerospace
@@ -37,6 +28,8 @@
     ];
 
     sessionVariable = {
+      EDITOR = "nvim";
+      VISUAL = "nvim";
       LLDB_DEBUGSERVER_PATH = "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/Resources/debugserver";
     };
 
