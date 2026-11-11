@@ -1,7 +1,4 @@
-{
-  pkgs,
-  ...
-}: {
+{pkgs, ...}: {
   networking.hostName = "nixos-headless";
   networking.useDHCP = true;
 

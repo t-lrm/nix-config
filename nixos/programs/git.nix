@@ -60,7 +60,6 @@
     };
 
     ignores = [
-
       # Global
       ".env"
       ".envrc"
