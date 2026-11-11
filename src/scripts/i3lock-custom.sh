@@ -1,5 +1,9 @@
 #!/bin/sh
 
+if which -s dunstctl; then 
+    dunstctl set-paused true 
+fi
+
 alpha='dd'
 selection='#44475a'
 
@@ -9,8 +13,6 @@ blue='#6272a4'
 white='ffffff'
 
 transparent=00000000
-
-locked_since="Locked since $(date +%H:%M)"
 
 i3lock-color \
   --show-failed-attempts \
@@ -35,7 +37,7 @@ i3lock-color \
   --blur 1 \
   --clock \
   --time-str="%H:%M:%S" \
-  --date-str="$locked_since" \
+  --date-str="%d/%m/%Y" \
   --verif-text="..." \
   --wrong-text="Failed" \
   --noinput="No Input" \
@@ -47,7 +49,7 @@ i3lock-color \
   --pass-screen-keys \
   --pass-volume-keys \
   --time-size=32 \
-  --date-size=14 \
+  --date-size=18 \
   --layout-size=10 \
   --time-font="JetBrains Mono:style=Bold" \
   --date-font="JetBrains Mono" \
@@ -56,3 +58,7 @@ i3lock-color \
   --wrong-font="JetBrains Mono" \
   --indicator \
   --nofork
+  
+if which -s dunstctl; then 
+    dunstctl set-paused false
+fi
