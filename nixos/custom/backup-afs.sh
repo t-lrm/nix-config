@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 LOGIN="timothee.le-roux-maertens"
 DEST="$(mktemp -d "$HOME"/afs-backup/backup.XXXX)"

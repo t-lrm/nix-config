@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Basic shortcuts
 alias ls='eza -1 --icons=always --hyperlink --sort=name'
 alias la='eza --all --long --icons=always --hyperlink --sort=name --total-size --git'
@@ -31,4 +33,5 @@ alias gl='git log --all --graph --decorate=full'
 alias dc='docker compose'
 
 # Misc
+alias cf='find . -iname "*.h" -o -iname "*.c" -exec clang-format -i'
 alias grep='grep --exclude-dir=.git --exclude-dir=.venv --exclude-dir=__pycache__'

@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # ===== HELPERS =====
 
 # Fail if not inside a git work tree
@@ -55,11 +57,6 @@ _tag_and_push() {
 }
 
 # ===== FUNCTIONS =====
-
-# Run clang-format on a whole repo
-format_c() {
-  find . -iname '*.h' -o -iname '*.c' | xargs clang-format -i
-}
 
 archi()  { _tag_and_push archi  0; }
 submit() { _tag_and_push submit 1; }

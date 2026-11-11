@@ -1,7 +1,9 @@
+#!/bin/sh
+
 # On the initial setup, you must run:
 # kinit -f timothee.le-roux-maertens@CRI.EPITA.FR
 
-set -euo pipefail
+set -eu
 
 DEST="$HOME/afs-backup"
 

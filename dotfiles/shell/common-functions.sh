@@ -1,3 +1,5 @@
+#!/bin/sh
+
 # Make directory and cd into it
 mkcd () {
     if [ -z "$1" ]; then
@@ -5,7 +7,7 @@ mkcd () {
         return 1
     fi
 
-    mkdir -p "$1" && cd "$1"
+    mkdir -p "$1" && cd "$1" || exit 1
 }
 
 # Appends a .old at the end of the file
@@ -17,11 +19,11 @@ mkold() {
 # Create temporary directory and cd into
 mktmp () {
     if [ -z $1 ]; then
-      cd "$(mktemp -d /tmp/XXXXXX)"
+      cd "$(mktemp -d /tmp/XXXXXX)" || exit 1
       return
     fi
 
-    mkdir -p /tmp/"$1" && cd /tmp/"$1"
+    mkdir -p /tmp/"$1" && cd /tmp/"$1" || exit 1 
 }
 
 # Copy working directory to clipboard

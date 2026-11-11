@@ -4,22 +4,14 @@
 dunstctl set-paused true
 
 alpha='dd'
-background='#282a36'
 selection='#44475a'
-comment='#6272a4'
 
-yellow='#f1fa8c'
 orange='#ffb86c'
 red='#ff5555'
-magenta='#ff79c6'
 blue='#6272a4'
-cyan='#8be9fd'
-green='50fa7b'
 white='ffffff'
 
 transparent=00000000
-shadow_col="000000b3"
-shadow_w="2"
 
 i3lock-color \
   --show-failed-attempts \
