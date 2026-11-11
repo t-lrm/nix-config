@@ -1,0 +1,25 @@
+# Increate keyboard repeat speed
+xset r rate 200
+
+# Completion for CMS (gitlab.cri.epita.fr)
+_cms_completion() {
+    local IFS=$'
+'
+    COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   _CMS_COMPLETE=complete_bash $1 ) )
+    return 0
+}
+complete -o default -F _cms_completion cms
+
+# Completion for Mounette (gitlab.cri.epita.fr)
+_mounette_completion() {
+    local IFS=$'
+'
+    COMPREPLY=( $( env COMP_WORDS="${COMP_WORDS[*]}" \
+                   COMP_CWORD=$COMP_CWORD \
+                   _MOUNETTE_COMPLETE=complete_bash $1 ) )
+    return 0
+}
+complete -o default -F _mounette_completion mounette
+

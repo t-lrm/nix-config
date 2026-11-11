@@ -2,118 +2,118 @@
   lib,
   pkgs,
   username,
-  vars,
-  programs,
+  hostname,
   ...
 }: {
-  home.username = username;
-  home.homeDirectory = "/Users/${username}"; # obsolete ?
-  home.sessionPath = ["$HOME/.local/bin"];
-
-  home.stateVersion = vars.stateVersion;
-
-  xdg = {
-    enable = true;
-    configFile = {
-      "aerospace/aerospace.toml".source = "${vars.dotfiles}/aerospace/aerospace.toml";
-    };
-  };
-
   programs.zsh = {
     enable = true;
     initContent = lib.concatStringsSep "\n\n" (map builtins.readFile [
-      "${vars.dotfiles}/shell/config.sh"
-      "${vars.dotfiles}/shell/common-aliases.sh"
-      "${vars.dotfiles}/shell/common-functions.sh"
-      "${vars.dotfiles}/shell/epita.sh"
-      "${vars.dotfiles}/zsh/zshrc"
+      ../../dotfiles/shell/config.sh
+      ../../dotfiles/shell/common-aliases.sh
+      ../../dotfiles/shell/common-functions.sh
+      ../../dotfiles/shell/epita.sh
+      ../../dotfiles/zsh/zshrc
     ]);
   };
 
   imports = [
-    "${vars.programs}/vim.nix"
-    "${vars.programs}/neovim.nix"
-    "${vars.programs}/emacs.nix"
-    "${vars.programs}/git.nix"
-    "${vars.programs}/ssh.nix"
-    "${vars.programs}/starship.nix"
-    "${vars.programs}/yazi.nix"
-    "${vars.programs}/kitty.nix"
-    "${vars.programs}/zoxide.nix"
+    ../../pkgs/aerospace
+
+    ../../pkgs/vim.nix
+    ../../pkgs/neovim.nix
+    ../../pkgs/emacs.nix
+    ../../pkgs/git.nix
+    ../../pkgs/ssh.nix
+    ../../pkgs/starship.nix
+    ../../pkgs/yazi.nix
+    ../../pkgs/kitty.nix
+    ../../pkgs/zoxide.nix
   ];
 
-  home.packages = with pkgs; [
-    # Fonts
-    nerd-fonts.jetbrains-mono
-    font-awesome
+  home = {
+    sessionPath = [
+      "$HOME/.local/bin" # Expose custom scripts
+      "/Applications/Docker.app/Contents/Resources/bin:$PATH" # Expose docker
+    ];
 
-    # Apps
-    firefox
-    google-chrome
-    obsidian
-    vscode
-    ollama
-    claude-code
-    qbittorrent
+    sessionVariable = {
+      LLDB_DEBUGSERVER_PATH = "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/Resources/debugserver";
+    };
 
-    # Tools
-    tmux
-    ipcalc
-    wget
-    tree
-    exiftool
-    git
-    pre-commit
-    clippy
-    zip
-    unzip
-    p7zip
-    ripgrep
-    fd
-    eza # improved ls
-    yarn
-    nodejs
-    pipx
-    direnv
-    gnupg
+    packages = with pkgs; [
+      # Fonts
+      nerd-fonts.jetbrains-mono
+      font-awesome
 
-    # Rust
-    rustc
-    cargo
+      # Apps
+      firefox
+      google-chrome
+      obsidian
+      ollama
+      claude-code
+      qbittorrent
 
-    # Python
-    python3
-    python3Packages.pip
-    python3Packages.ipython
-    poetry
+      # Tools
+      tmux
+      ipcalc
+      wget
+      tree
+      exiftool
+      git
+      pre-commit
+      clippy
+      zip
+      unzip
+      p7zip
+      ripgrep
+      fd
+      eza # improved ls
+      yarn
+      nodejs
+      pipx
+      direnv
+      gnupg
 
-    # C
-    gnumake
-    gcc
-    gdb
-    lldb
-    clang-tools.out
+      # Rust
+      rustc
+      cargo
 
-    # Go
-    go
+      # Python
+      python3
+      python3Packages.pip
+      python3Packages.ipython
+      poetry
 
-    # Markup languages
-    jq
-    yq
+      # C
+      gnumake
+      gcc
+      gdb
+      lldb
+      clang-tools.out
 
-    # Nix
-    alejandra
-    nixd
+      # Go
+      go
 
-    # Shell
-    shellcheck
+      # Markup languages
+      jq
+      yq
 
-    # Documentation
-    man-pages
-    man-pages-posix
-    tldr
+      # Nix
+      alejandra
+      nixd
 
-    # Specific for GNS3 (provide telnet)
-    inetutils
-  ];
+      # Shell
+      shellcheck
+
+      # Documentation
+      man-pages
+      man-pages-posix
+      tldr
+
+      # Specific for GNS3 (provide telnet)
+      inetutils
+    ];
+
+    stateVersion = "26.05";
+  };
 }

@@ -1,14 +1,7 @@
-# Aliases
-alias nd='nix develop -c zsh'
-alias db='docker build --platform linux/amd64'
-
 # https://docs.docker.com/engine/cli/completion/#zsh
 FPATH="$HOME/.docker/completions:$FPATH"
 autoload -Uz compinit
 compinit
-
-# Expose docker to user path
-export PATH="/Applications/Docker.app/Contents/Resources/bin:$PATH"
 
 # Completion for CMS (gitlab.cri.epita.fr)
 _cms_completion() {

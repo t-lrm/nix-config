@@ -1,7 +1,6 @@
 {
   pkgs,
   lib,
-  vars,
   ...
 }: {
   programs.neovim = {
@@ -18,10 +17,10 @@
       fzf-lua
     ];
 
-    extraLuaConfig = lib.concatStringsSep "\n" (map builtins.readFile [
-      "${vars.dotfiles}/neovim/options.lua"
-      "${vars.dotfiles}/neovim/lsp.lua"
-      "${vars.dotfiles}/neovim/keybinds.lua"
+    initLua = lib.concatStringsSep "\n" (map builtins.readFile [
+      ../dotfiles/neovim/options.lua
+      ../dotfiles/neovim/lsp.lua
+      ../dotfiles/neovim/keybinds.lua
     ]);
   };
 

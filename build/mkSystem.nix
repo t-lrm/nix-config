@@ -14,7 +14,7 @@
   homeConfig = hostDir + "/home.nix";
 
   specialArgs = {
-    inherit inputs hostname username;
+    inherit inputs hostname username system;
   };
 
   homeManagerModule = {

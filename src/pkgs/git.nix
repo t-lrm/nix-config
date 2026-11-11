@@ -14,42 +14,40 @@
       gpg.format = "openpgp";
       commit.gpgsign = true;
 
-      push.autoSetupRemote = true;
-
       status = {
         branch = true;
         showStash = true;
         showUntrackedFiles = "all";
       };
 
+      push = {
+        autoSetupRemote = true;
+      };
+
+      alias = {
+        gs = "git status";
+        ga = "git add";
+        gap = "git add -Ap";
+        gc = "git commit";
+        gcm = "git commit -m";
+        gcl = "git clone";
+        gp = "git push";
+        gpf = "git push --follow-tags";
+        gt = "git tag -ma";
+        gtl = "git tag --list";
+        gtd = "git tag --delete";
+        gd = "git diff";
+        gds = "git diff --staged";
+        gr = "git restore -p";
+        grs = "git restore --staged";
+        gl = "git log --all --graph --decorate=full";
+      };
+
       url = {
-        "git@github.com:" = {
-          insteadOf = "gh:";
-        };
-
-        "git@gitlab.com:" = {
-          insteadOf = "gl:";
-        };
-
-        "git@gitlab.cri.epita.fr:" = {
-          insteadOf = "cri:";
-        };
-
-        "git@github.com:t-lrm/" = {
-          insteadOf = "t-lrm:";
-        };
-
-        "git@github.com:umyedi/" = {
-          insteadOf = "umyedi:";
-        };
-
-        "git@gitlab.cri.epita.fr:timothee.le-roux-maertens/" = {
-          insteadOf = "tlrm:";
-        };
-
-        "git@gitlab.com:prologin/" = {
-          insteadOf = "prolo:";
-        };
+        "git@github.com:" = {insteadOf = "gh:";};
+        "git@gitlab.com:" = {insteadOf = "gl:";};
+        "git@gitlab.cri.epita.fr:" = {insteadOf = "cri:";};
+        "git@gitlab.com:prologin/" = {insteadOf = "prolo:";};
       };
 
       # Required to mount afs from home
