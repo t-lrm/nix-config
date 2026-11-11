@@ -13,7 +13,7 @@ echo "Log can be found at $LOG."
 
 klist -a &> "$LOG"
 
-if grep -q "$LOG" "$LOGIN"; then
+if ! grep -qF "$LOG" "$LOGIN"; then
     kinit -f "$LOGIN"@CRI.EPITA.FR
 fi
 
@@ -22,7 +22,7 @@ sftp \
   -o GSSAPIAuthentication=yes \
   -o GSSAPIDelegateCredentials=yes \
   "$LOGIN"@ssh.cri.epita.fr <<EOF
-lcd $DEST
-cd $SRC
+lcd "$DEST"
+cd "$SRC"
 get -r *
 EOF
