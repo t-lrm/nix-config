@@ -14,7 +14,7 @@
       gpg.format = "openpgp";
       commit.gpgsign = true;
 
-      apply.whitespace = "error";
+      push.autoSetupRemote = true;
 
       status = {
         branch = true;

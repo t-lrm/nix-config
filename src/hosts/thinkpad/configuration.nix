@@ -16,9 +16,6 @@
     (vars.services + "/virtualmachine.nix")
   ];
 
-  i18n.defaultLocale = "en_US.UTF-8";
-  time.timeZone = "Europe/Paris";
-
   # Use the systemd-boot EFI boot loader
   boot.loader = {
     systemd-boot.enable = true;
@@ -48,11 +45,6 @@
   };
 
   # Garbage collector
-  nix.gc = {
-    automatic = true;
-    dates = "weekly";
-    options = "--delete-older-than 30d";
-  };
 
   # Enable a custom i3lock script in /etc folder
   environment.etc."i3lock-custom" = {
