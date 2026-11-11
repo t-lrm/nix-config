@@ -59,6 +59,26 @@
       };
     };
 
-    ignores = [".env" "*.swp" ".DS_Store"];
+    ignores = [
+
+      # Global
+      ".env"
+      ".envrc"
+      ".direnv/"
+      "*.swp"
+
+      # MacOS
+      ".DS_Store"
+
+      # Python
+      "__pycache__"
+      "*.pyc"
+      ".pytest_cache/"
+
+      # C
+      "*.o"
+      "*.d"
+      "compile_commands.json"
+    ];
   };
 }
