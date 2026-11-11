@@ -13,7 +13,7 @@ echo "Log can be found at $LOG."
 
 klist -a &> "$LOG"
 
-if [ -z "$(cat "$LOG" | grep "$LOGIN")" ]; then
+if grep -q "$LOG" "$LOGIN"; then
     kinit -f "$LOGIN"@CRI.EPITA.FR
 fi
 

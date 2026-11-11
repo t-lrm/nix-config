@@ -18,7 +18,7 @@ mkold() {
 
 # Create temporary directory and cd into
 mktmp () {
-    if [ -z $1 ]; then
+    if [ -z "$1" ]; then
       cd "$(mktemp -d /tmp/XXXXXX)" || exit 1
       return
     fi

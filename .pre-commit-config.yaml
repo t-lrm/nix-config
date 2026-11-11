@@ -1,0 +1,12 @@
+repos:
+  - repo: https://github.com/kamadorueda/alejandra
+    rev: 4.1.0
+    hooks:
+      - id: alejandra-system
+  - repo: https://github.com/koalaman/shellcheck-precommit
+    rev: v0.11.0
+    hooks:
+    -   id: shellcheck
+        args: [
+          "--exclude=SC2329" # Never invoked function (doesn't work with `trap`)
+        ]
