@@ -12,6 +12,7 @@
 
     # Applications
     "firefox -new-instance"
+    "${pkgs.kitty}/bin/kitty"
     "1password"
 
     # Workspace
