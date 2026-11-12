@@ -1,3 +1,5 @@
+.PHONY: help build
+
 help:
 	@echo -e "Usage:"
 	@echo -e "\tmake help\t\tShow this help message"
@@ -6,4 +8,11 @@ help:
 new:
 	@./build/new.sh
 
-.PHONY: help build
+thinkpad:
+	sudo nixos-rebuild switch --flake .#thinkpad
+
+macbook:
+	sudo darwin-rebuild switch --flake .#macbook
+
+epita:
+	home-manager switch --flake .#epita

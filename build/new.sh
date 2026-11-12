@@ -4,6 +4,7 @@ set -euo pipefail
 
 HOSTS="./src/hosts"
 FLAKE="./flake.nix"
+MAKEFILE="./Makefile"
 TEMPLATES="./build/templates"
 
 err() {
@@ -15,8 +16,8 @@ if [ ! -d "./.git" ]; then
     err "You must run this script at the root of the repository."
 fi
 
-if ! git diff --quiet "flake.nix" "$HOSTS"; then
-    err "You have unstaged changes in flake.nix or $HOSTS."
+if ! git diff --quiet "$FLAKE" "$MAKEFILE" "$HOSTS"; then
+    err "You have unstaged changes in $FLAKE, $MAKEFILE or $HOSTS."
 fi
 
 echo "=== CREATE A NEW MACHINE CONFIGURATION ==="
@@ -84,18 +85,24 @@ if [[ ! "$confirm" =~ ^[Yy]([Ee][Ss])?$ ]]; then
     exit 0
 fi
 
-ed -s "$FLAKE" <<EOF
-\$-2a
+tmp=$(mktemp)
+awk -v block="$block" '
+  {
+    lines[NR] = $0
+  }
+  END {
+    for (i = 1; i <= NR; i++) {
+      if (i == NR - 1) {
+        print ""
+        print block
+      }
+      print lines[i]
+    }
+  }
+' "$FLAKE" > "$tmp"
 
-    ${type}Configurations.$hostname = mkSystem {
-      hostname = "$hostname";
-      username = "$username";
-      system = "$system";
-      type = "$type";
-    };
-.
-wq
-EOF
+cat "$tmp" > "$FLAKE"
+rm "$tmp"
 
 mkdir "$HOSTS/$hostname"
 cp "$TEMPLATES/home.nix" "$HOSTS/$hostname"
@@ -114,8 +121,7 @@ else
     command="sudo ${type}-rebuild switch --flake .#$hostname"
 fi
 
-read -r -p "Do you want to run '$command' [y/n]? " confirm
+printf "\n$hostname:\n\t$command" >> "$MAKEFILE"
 
-if [[ "$confirm" =~ ^[Yy]([Ee][Ss])?$ ]]; then
-    $command
-fi
+echo 
+echo "You can now run 'make $hostname'"
