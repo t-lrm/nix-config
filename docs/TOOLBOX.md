@@ -14,7 +14,7 @@ When `home-manager` is not installed on your machine, you can use the following
 command to run it without installing it:
 
 ```sh
-nix run home-manager/release-25.11
+nix run home-manager/release-26.05
 ```
 
 ## Parse config files
@@ -33,3 +33,4 @@ cfg = builtins.fromTOML ''
 '';
 :p cfg
 ```
+You can do the same using `builtins.fromJSON`.
