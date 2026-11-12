@@ -15,4 +15,4 @@ macbook:
 	sudo darwin-rebuild switch --flake .#macbook
 
 epita:
-	home-manager switch --flake .#epita
+	home-manager switch --flake .#epita -b backup

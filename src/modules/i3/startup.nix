@@ -12,7 +12,6 @@
 
     # Applications
     "firefox -new-instance"
-    "1password"
 
     # Workspace
     "${pkgs.i3}/bin/i3-msg 'workspace number 1'"

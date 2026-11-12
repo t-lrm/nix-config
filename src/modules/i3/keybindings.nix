@@ -42,7 +42,7 @@ in {
     "${mod}+Shift+l" = "move right";
 
     "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
-    "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi --show run";
+    "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show run";
     "${mod}+y" = "exec ${i3.terminal} -e ${pkgs.yazi}/bin/yazi";
 
     "${mod}+Shift+x" = "exec --no-startup-id i3lock-custom";

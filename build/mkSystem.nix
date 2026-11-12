@@ -58,6 +58,10 @@ in
 
       modules = [
         homeConfig
+        {
+          home.username = username;
+          home.homeDirectory = "/home/${username}";
+        }
       ];
     }
   else throw "Unsupported system type: ${type}"
