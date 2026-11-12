@@ -5,5 +5,6 @@
     ./networking.nix
     ./xserver.nix
     ./virtualmachine.nix
+    ./screen-locker.nix
   ];
 }

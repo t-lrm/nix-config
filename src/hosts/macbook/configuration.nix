@@ -1,18 +1,27 @@
 {
+  hostname,
   username,
   system,
   ...
 }: {
-  nixpkgs.hostPlatform = "${system}";
-  system.stateVersion = 6;
-
-  users.users.${username}.home = "/Users/${username}";
-  system.primaryUser = "${username}";
+  imports = [
+  ];
 
   nix.settings.experimental-features = ["nix-command" "flakes"];
-  nixpkgs.config.allowUnfree = true;
 
-  environment.systemPath = [
-    "/Applications/Aerospace.app/bin"
-  ];
+  nixpkgs = {
+    hostPlatform = system;
+    config.allowUnfree = true;
+  };
+
+  users.users.${username}.home = "/Users/${username}";
+  system.primaryUser = username;
+
+  networking = {
+    hostName = hostname;
+    localHostName = hostname;
+    computerName = hostname;
+  };
+
+  system.stateVersion = 6;
 }

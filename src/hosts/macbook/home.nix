@@ -10,7 +10,8 @@
   home = {
     sessionPath = [
       "$HOME/.local/bin" # Expose custom scripts
-      "/Applications/Docker.app/Contents/Resources/bin:$PATH" # Expose docker
+      "/Applications/Docker.app/Contents/Resources/bin:$PATH"
+      "/Applications/Aerospace.app/bin"
     ];
 
     sessionVariables = {

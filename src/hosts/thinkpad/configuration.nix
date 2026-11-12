@@ -1,20 +1,31 @@
 {
-  config,
-  lib,
   pkgs,
   username,
-  host,
-  vars,
   ...
 }: {
   imports = [
     ./hardware-configuration.nix
-    (vars.services + "/audio.nix")
-    (vars.services + "/bluetooth.nix")
-    (vars.services + "/networking.nix")
-    (vars.services + "/xserver.nix")
-    (vars.services + "/virtualmachine.nix")
+    ./home.nix
+
+    ../../core/users.nix
+
+    ../../services
+    ../../core/users.nix
   ];
+
+  users.users = {
+    ${username} = {
+      extraGroups = [
+        "docker"
+        "libvirtd"
+      ];
+    };
+    other = {
+      isNormalUser = true;
+      extraGroups = [];
+      initialPassword = "nixos";
+    };
+  };
 
   # Use the systemd-boot EFI boot loader
   boot.loader = {
@@ -23,37 +34,10 @@
     systemd-boot.configurationLimit = 1;
   };
 
-  # Enable Flakes
-  nix.settings.experimental-features = ["nix-command" "flakes"];
-
   fonts = {
     enableDefaultPackages = true;
     fontconfig.enable = true;
   };
-
-  # Define user accounts ("wheel" is the sudo group)
-  users.users.${username} = {
-    isNormalUser = true;
-    extraGroups = [
-      "networkmanager"
-      "wheel"
-      "docker"
-      "libvirtd"
-    ];
-    linger = true; # enable running script on startup
-    initialHashedPassword = "$y$j9T$GCgx4etC0jxe70dgFiNEO1$pclGOw8/W3clravgoHFASZHg6ElgK9QD9NMMi4FMTH/";
-  };
-
-  # Garbage collector
-
-  # Enable a custom i3lock script in /etc folder
-  environment.etc."i3lock-custom" = {
-    source = vars.custom + "/i3lock-custom.sh";
-    mode = "0755";
-  };
-
-  # Allow unfree packages
-  nixpkgs.config.allowUnfree = true;
 
   # 1Password GUI
   programs._1password-gui = {
@@ -76,9 +60,5 @@
     pinentryPackage = pkgs.pinentry-curses;
   };
 
-  environment.systemPackages = with pkgs; [
-    home-manager
-  ];
-
-  system.stateVersion = "25.11"; # DO NOT CHANGE
+  system.stateVersion = "26.05";
 }
