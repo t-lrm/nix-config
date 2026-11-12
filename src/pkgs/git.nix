@@ -1,4 +1,4 @@
-{...}: {
+{lib, ...}: {
   programs.git = {
     enable = true;
 
@@ -12,7 +12,7 @@
       };
 
       gpg.format = "openpgp";
-      commit.gpgsign = true;
+      commit.gpgsign = lib.mkDefault false;
 
       status = {
         branch = true;

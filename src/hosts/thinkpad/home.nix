@@ -1,5 +1,8 @@
 {pkgs, ...}: {
-  programs.bash.enable = true;
+  programs = {
+    bash.enable = true;
+    git.settings.commit.gpgsign = true;
+  };
 
   imports = [
     ../../modules/i3
