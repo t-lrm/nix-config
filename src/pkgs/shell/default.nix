@@ -18,6 +18,8 @@
     shellAliases = {
     };
 
+    enableCompletion = true;
+
     initExtra = ''
       ${builtins.readFile ./common/functions.sh}
       ${builtins.readFile ./bash/bashrc}
@@ -29,6 +31,8 @@
       nd = "nix develop -c zsh";
       db = "docker build --platform linux/amd64";
     };
+
+    enableCompletion = true;
 
     initContent = ''
       ${builtins.readFile ./common/functions.sh}

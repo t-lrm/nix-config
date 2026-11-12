@@ -1,7 +1,5 @@
 # https://docs.docker.com/engine/cli/completion/#zsh
 FPATH="$HOME/.docker/completions:$FPATH"
-autoload -Uz compinit
-compinit
 
 # Completion for CMS (gitlab.cri.epita.fr)
 _cms_completion() {

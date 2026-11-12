@@ -12,6 +12,7 @@
       "$HOME/.local/bin" # Expose custom scripts
       "/Applications/Docker.app/Contents/Resources/bin:$PATH"
       "/Applications/Aerospace.app/bin"
+      "/opt/homebrew/bin"
     ];
 
     sessionVariables = {
