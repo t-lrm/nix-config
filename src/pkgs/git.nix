@@ -24,25 +24,6 @@
         autoSetupRemote = true;
       };
 
-      alias = {
-        gs = "git status";
-        ga = "git add";
-        gap = "git add -Ap";
-        gc = "git commit";
-        gcm = "git commit -m";
-        gcl = "git clone";
-        gp = "git push";
-        gpf = "git push --follow-tags";
-        gt = "git tag -ma";
-        gtl = "git tag --list";
-        gtd = "git tag --delete";
-        gd = "git diff";
-        gds = "git diff --staged";
-        gr = "git restore -p";
-        grs = "git restore --staged";
-        gl = "git log --all --graph --decorate=full";
-      };
-
       url = {
         "git@github.com:" = {insteadOf = "gh:";};
         "git@gitlab.com:" = {insteadOf = "gl:";};
@@ -77,5 +58,24 @@
       "*.d"
       "compile_commands.json"
     ];
+  };
+
+  home.shellAliases = {
+    gs = "git status";
+    ga = "git add";
+    gap = "git add -Ap";
+    gc = "git commit";
+    gcm = "git commit -m";
+    gcl = "git clone";
+    gp = "git push";
+    gpf = "git push --follow-tags";
+    gt = "git tag -ma";
+    gtl = "git tag --list";
+    gtd = "git tag --delete";
+    gd = "git diff";
+    gds = "git diff --staged";
+    gr = "git restore -p";
+    grs = "git restore --staged";
+    gl = "git log --all --graph --decorate=full";
   };
 }

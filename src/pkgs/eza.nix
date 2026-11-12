@@ -9,7 +9,8 @@
     enableBashIntegration = true;
 
     extraOptions = [
-      "--group-directories-first --sort=name"
+      "--group-directories-first"
+      "--sort=name"
     ];
   };
 

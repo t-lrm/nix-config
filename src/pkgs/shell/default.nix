@@ -31,8 +31,8 @@
     };
 
     initContent = ''
-      ${builtins.readFile ../common/functions.sh}
-      ${builtins.readFile ../zsh/zshrc}
+      ${builtins.readFile ./common/functions.sh}
+      ${builtins.readFile ./zsh/zshrc}
     '';
   };
 }

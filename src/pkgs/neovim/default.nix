@@ -21,20 +21,23 @@
     ]);
   };
 
-  home.packages = with pkgs; [
-    ripgrep
-    fd
-    fzf
-    bat
-    pyright
-    clang-tools
-    gopls
-    nixd
-    rust-analyzer
-    yaml-language-server
-    ruff
-    black
-    python3
-    python3Packages.pytest
-  ];
+  home = {
+    shellAliases = {
+      n = "nvim";
+    };
+    packages = with pkgs; [
+      # LSPs
+      pyright
+      clang-tools
+      gopls
+      nixd
+      rust-analyzer
+      yaml-language-server
+      asm-lsp
+
+      fzf
+      ripgrep
+      alejandra
+    ];
+  };
 }

@@ -3,7 +3,8 @@
 
   imports = [
     ../../pkgs/default/cli.nix
-
+    ../../pkgs/shell
+    ../../pkgs/eza.nix
     ../../pkgs/aerospace
     ../../pkgs/neovim
     ../../pkgs/emacs.nix
