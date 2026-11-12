@@ -15,9 +15,9 @@
     ];
 
     initLua = lib.concatStringsSep "\n" (map builtins.readFile [
-      ../config/options.lua
-      ../config/lsp.lua
-      ../config/keybinds.lua
+      ./config/options.lua
+      ./config/lsp.lua
+      ./config/keybinds.lua
     ]);
   };
 

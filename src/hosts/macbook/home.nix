@@ -2,10 +2,10 @@
   programs.zsh.enable = true;
 
   imports = [
-    ../../pkgs/default/workstation.nix
+    ../../pkgs/default/cli.nix
 
     ../../pkgs/aerospace
-    ../../pkgs/neovim.nix
+    ../../pkgs/neovim
     ../../pkgs/emacs.nix
     ../../pkgs/git.nix
     ../../pkgs/ssh.nix
@@ -22,7 +22,7 @@
       "/Applications/Docker.app/Contents/Resources/bin:$PATH" # Expose docker
     ];
 
-    sessionVariable = {
+    sessionVariables = {
       EDITOR = "nvim";
       VISUAL = "nvim";
       LLDB_DEBUGSERVER_PATH = "/Library/Developer/CommandLineTools/Library/PrivateFrameworks/LLDB.framework/Versions/A/Resources/debugserver";
