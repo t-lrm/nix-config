@@ -29,6 +29,13 @@ in {
   xsession.windowManager.i3.config.keybindings =
     directionBindings
     // {
+      # General
+      "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+      "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi";
+
+      "${mod}+Shift+c" = "reload";
+      "${mod}+Shift+r" = "restart";
+
       # Applications
       "${mod}+y" = "exec ${i3.terminal} -e ${pkgs.yazi}/bin/yazi";
 

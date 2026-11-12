@@ -1,9 +1,9 @@
 {pkgs, ...}: {
   imports = [
-    ../kitty.nix
-    ../yazi.nix
-    ../flameshot.nix
-    ../i3status-rust
+    ../../pkgs/kitty.nix
+    ../../pkgs/yazi.nix
+    ../../pkgs/flameshot.nix
+    ../../pkgs/i3status-rust
 
     ./keybindings.nix
     ./modes.nix

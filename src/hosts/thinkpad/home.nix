@@ -4,6 +4,8 @@
   imports = [
     ../../modules/i3
 
+    ../../services/screen-locker.nix
+
     ../../pkgs/default/cli.nix
     ../../pkgs/default/graphical.nix
     ../../pkgs/dunst.nix

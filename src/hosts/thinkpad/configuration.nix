@@ -5,13 +5,15 @@
 }: {
   imports = [
     ./hardware-configuration.nix
-    ./home.nix
 
+    ../../core/nix.nix
+    ../../core/common.nix
     ../../core/users.nix
 
     ../../services
-    ../../core/users.nix
   ];
+
+  home-manager.users.${username} = import ./home.nix;
 
   users.users = {
     ${username} = {

@@ -1,11 +1,11 @@
 {
   pkgs,
-  host,
+  hostname,
   ...
 }: {
   # Configure network connections interactively with nmcli or nmtui
   networking = {
-    hostName = host;
+    hostName = hostname;
     networkmanager.enable = true;
     networkmanager.plugins = with pkgs; [
       networkmanager-openvpn
