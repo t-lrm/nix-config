@@ -31,17 +31,22 @@ in {
     "${mod}+Shift+9" = "move container to workspace number 9";
     "${mod}+Shift+0" = "move container to workspace number 10";
 
-    "${mod}+h" = "focus left";
-    "${mod}+j" = "focus down";
-    "${mod}+k" = "focus up";
-    "${mod}+l" = "focus right";
+    "${mod}+j" = "focus left";
+    "${mod}+k" = "focus down";
+    "${mod}+l" = "focus up";
+    "${mod}+semicolon" = "focus right";
 
-    "${mod}+Shift+h" = "move left";
-    "${mod}+Shift+j" = "move down";
-    "${mod}+Shift+k" = "move up";
-    "${mod}+Shift+l" = "move right";
+    "${mod}+Shift+j" = "move left";
+    "${mod}+Shift+k" = "move down";
+    "${mod}+Shift+l" = "move up";
+    "${mod}+Shift+semicolon" = "move right";
+
+    "${mod}+h" = "split h";
+    "${mod}+v" = "split v";
+    "${mod}+f" = "fullscreen toggle";
 
     "${mod}+Return" = "exec ${pkgs.kitty}/bin/kitty";
+    "${mod}+Shift+q" = "kill";
     "${mod}+d" = "exec ${pkgs.rofi}/bin/rofi -show run";
     "${mod}+y" = "exec ${i3.terminal} -e ${pkgs.yazi}/bin/yazi";
 
