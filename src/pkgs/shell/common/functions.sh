@@ -50,6 +50,26 @@ cb() {
   fi
 }
 
+# Initialize a venv if it doesn't exists and source it
+venv () {
+    if [ ! -d ".venv" ] && [ ! -d "venv" ]; then
+        python3 -m venv .venv || return 1
+    fi
+
+    if [ -d ".venv" ]; then
+        source .venv/bin/activate
+        return
+    fi
+
+    if [ -d "venv" ]; then
+        source venv/bin/activate
+        return
+    fi
+
+    echo "Couldn't create a virtual environnement" >&2
+    return 1
+}
+
 # Create a simple main.c
 maininit() {
   cat > main.c <<'EOF'

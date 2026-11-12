@@ -32,6 +32,7 @@
     eza
     direnv
     gnupg
+    bat
 
     # Rust
     rustc
