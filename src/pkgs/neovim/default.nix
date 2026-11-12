@@ -6,6 +6,8 @@
   programs.neovim = {
     enable = true;
 
+    vimAlias = true;
+
     plugins = with pkgs.vimPlugins; [
       onedarkpro-nvim
       nvim-lspconfig
@@ -22,9 +24,6 @@
   };
 
   home = {
-    shellAliases = {
-      n = "nvim";
-    };
     packages = with pkgs; [
       # LSPs
       pyright
