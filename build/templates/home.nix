@@ -1,3 +1,3 @@
 {...}: {
-  # Home configuration
+  # FIXME
 }
