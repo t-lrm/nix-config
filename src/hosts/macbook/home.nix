@@ -3,18 +3,7 @@
 
   imports = [
     ../../pkgs/default/cli.nix
-    ../../pkgs/shell
-    ../../pkgs/eza.nix
-    ../../pkgs/aerospace
-    ../../pkgs/neovim
-    ../../pkgs/emacs.nix
-    ../../pkgs/git.nix
-    ../../pkgs/ssh.nix
-    ../../pkgs/starship.nix
-    ../../pkgs/yazi.nix
-    ../../pkgs/kitty.nix
-    ../../pkgs/zoxide.nix
-    ../../pkgs/direnv.nix
+    ../aerospace
   ];
 
   home = {

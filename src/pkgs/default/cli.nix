@@ -1,4 +1,19 @@
 {pkgs, ...}: {
+  imports = [
+    ../shell
+    ../eza.nix
+    ../neovim
+    ../emacs.nix
+    ../git.nix
+    ../ssh.nix
+    ../starship.nix
+    ../yazi.nix
+    ../kitty.nix
+    ../zoxide.nix
+    ../direnv.nix
+    ../clang-format.nix
+  ];
+
   home.packages = with pkgs; [
     # Common
     tmux
