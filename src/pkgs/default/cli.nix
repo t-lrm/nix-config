@@ -1,6 +1,7 @@
 {pkgs, ...}: {
   imports = [
     ../shell
+    ../clang-format
     ../eza.nix
     ../neovim
     ../emacs.nix
@@ -11,7 +12,6 @@
     ../kitty.nix
     ../zoxide.nix
     ../direnv.nix
-    ../clang-format.nix
   ];
 
   home.packages = with pkgs; [

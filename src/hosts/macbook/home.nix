@@ -3,7 +3,8 @@
 
   imports = [
     ../../pkgs/default/cli.nix
-    ../aerospace
+    ../../pkgs/aerospace
+    ../../scripts
   ];
 
   home = {
