@@ -46,7 +46,7 @@ if [[ ! "$type" =~ ^(nixos|darwin|home)$ ]]; then
     err "Invalid type '$type'"
 fi
 
-system="$(nix eval --impure --raw --expr builtins.currentSystem)"
+system="$(nix eval --extra-experimental-features nix-command --impure --raw --expr builtins.currentSystem)"
 
 echo
 read -r -p "Use sytem '$system' [y/n]? " confirm
@@ -121,7 +121,7 @@ else
     command="sudo ${type}-rebuild switch --flake .#$hostname"
 fi
 
-printf "\n$hostname:\n\t$command" >> "$MAKEFILE"
+printf "\n%s:\n\t%s" "$hostname" "$command" >> "$MAKEFILE"
 
 echo 
 echo "You can now run 'make $hostname'"
