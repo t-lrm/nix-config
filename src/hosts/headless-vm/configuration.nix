@@ -4,6 +4,8 @@
   ...
 }: {
   imports = [
+    ./hardware-configuration.nix
+
     ../../services/networking.nix
 
     ../../core/nix.nix

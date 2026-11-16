@@ -45,8 +45,8 @@
       type = "home";
     };
 
-    nixosConfigurations.headless = mkSystem {
-      hostname = "headless";
+    nixosConfigurations.headless-vm = mkSystem {
+      hostname = "headless-vm";
       username = "nixos";
       system = "x86_64-linux";
       type = "nixos";
