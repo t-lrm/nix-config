@@ -123,5 +123,4 @@ fi
 
 printf "\n%s:\n\t%s" "$hostname" "$command" >> "$MAKEFILE"
 
-echo 
 echo "You can now run 'make $hostname'"
