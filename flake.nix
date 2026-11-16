@@ -44,5 +44,12 @@
       system = "x86_64-linux";
       type = "home";
     };
+
+    nixosConfigurations.headless = mkSystem {
+      hostname = "headless";
+      username = "nixos";
+      system = "x86_64-linux";
+      type = "nixos";
+    };
   };
 }

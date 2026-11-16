@@ -16,3 +16,6 @@ macbook:
 
 epita:
 	home-manager switch --flake .#epita -b backup
+
+headless:
+	sudo nixos-rebuild switch --flake .#headless
